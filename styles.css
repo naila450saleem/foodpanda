@@ -1,0 +1,584 @@
+:root {
+    --primary-pink: #ff2b85;
+    --dark-gray: #333333;
+    --light-gray: #f8f8f8;
+    --white: #ffffff;
+    --border-color: #f0f0f0;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-pink);
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.logo span {
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.address-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    background-color: var(--light-gray);
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.address-bar i {
+    margin-right: 12px;
+    color: var(--primary-pink);
+}
+
+.address-bar input {
+    border: none;
+    background: none;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header-actions button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background: transparent;
+    color: var(--primary-pink);
+}
+
+.btn-login:hover {
+    background: rgba(255,43,133,0.1);
+}
+
+.btn-signup {
+    background: var(--primary-pink);
+    color: white;
+}
+
+.btn-signup:hover {
+    background: #e02475;
+}
+
+/* Navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    overflow-x: auto;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-item {
+    padding: 16px 20px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.nav-item.active a {
+    color: var(--primary-pink);
+    font-weight: 700;
+}
+
+/* Full-width Top Search Bar */
+.top-search-bar {
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 0;
+    
+    position: relative;
+    z-index: 999;
+}
+
+.search-bar-large {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.search-bar-large i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 22px;
+}
+
+.search-bar-large input {
+    width: 100%;
+    padding: 18px 20px 18px 55px;
+    font-size: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar-large input:focus {
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 0 5px rgba(215, 15, 100, 0.1);
+}
+
+
+/* Content Area */
+.content-area {
+    padding: 40px 0;
+}
+
+/* Main Wrapper: QR Left 30% + Promo Right 70% */
+.main-content-wrapper {
+    /* YEH ZAROORI HAI: Yeh space create karta hai left-side fixed panel ke liye */
+    padding-left: 30%; 
+    /* Purani height property nahi chahiye */
+}
+
+.left-section {
+    /* YEH SECTION AB SCREEN KE SAATH FIX HO JAYEGI */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100vh; /* Puri screen height cover karega */
+    background-color: #f8f8f8; /* Background color add kiya taaki woh visible rahe */
+    padding: 20px;
+    z-index: 998; /* Header se neeche rehne ke liye (header ki z-index 1000 hai) */
+    
+    /* Iske andar wale content (QR box) ko vertically center karne ke liye */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section {
+    /* Ab yeh section wrapper ki poori width le sakta hai */
+    width: 100%;
+    /* Agar iske content zyada ho jayega, toh iska khudka scrollbar aa jayega */
+    overflow-y: auto;
+    /* Right side ke content ko scrollbar se thoda dur rakhne ke liye padding */
+    padding-right: 10px; 
+}
+
+
+/* QR Box */
+.qr-box {
+    background-color: #fff0f5;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%; /* Box ko full width bana diya */
+    max-width: 280px; /* Lekin ek maximum width set ki */
+    margin-top: 30%;
+}
+
+.qr-box h2 {
+    font-size: 1.2rem;
+    color: var(--primary-pink);
+    margin-bottom: 8px;
+}
+
+.qr-box p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.qr-code img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.app-store-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.store-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: var(--primary-pink);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.store-btn i {
+    font-size: 16px;
+}
+
+.store-btn:hover {
+    background-color: #e02475;
+}
+
+
+/* Promo Banner Right Section */
+.promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFDDDD;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 20px;
+}
+
+.promo-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.promo-left h2 {
+    font-size: 1.5rem;
+}
+
+.btn-promo {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary-pink);
+    color: #fff;
+}
+
+.btn-promo:hover {
+    background-color: #e02475;
+}
+
+.promo-right {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-right img {
+    width: 120px;
+    height: auto;
+}
+
+/* Restaurant Cards */
+.restaurant-listings h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+.restaurant-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.promo-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-pink);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* First tag */
+.tag1 {
+    top: 10px;
+}
+
+/* Second tag (just below first one) */
+.tag2 {
+    top: 35px;
+    background-color: #333; /* optional: different color */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    background-color: #48c479;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.card-rating i {
+    margin-right: 4px;
+    font-size: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .main-content-wrapper {
+        flex-direction: column;
+    }
+    .left-section, .right-section {
+        flex: 1 1 100%;
+    }
+    .promo-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .promo-left {
+        align-items: center;
+    }
+    .app-store-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+
+/* --- NEW: Food Categories Carousel Styling --- */
+.carousel h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.food-categories-carousel {
+    position: relative;
+    width: 100%;
+    margin: 40px 0;
+    overflow: hidden; /* Hide the overflowing items */
+}
+
+.categories-slider-container {
+    display: flex;
+    transition: transform 0.4s ease-in-out; /* Smooth sliding transition */
+}
+
+.categories-slider-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Space between items */
+}
+
+.category-item {
+    flex: 0 0 auto; /* Items won't shrink or grow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    min-width: 100px; /* Set a minimum width for items */
+}
+
+/* NEW: Outer circular wrapper */
+.category-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+
+/* UPDATED: Inner image styling */
+.category-icon-wrapper img {
+    width: 80px; /* Image is smaller than the wrapper */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* UPDATED: Hover effect on the wrapper */
+.category-item:hover .category-icon-wrapper {
+    transform: scale(1.05);
+    background-color: #fce4ec; /* Light pink background on hover */
+}
+
+.category-item span {
+    font-size: 14px;
+    color: red;
+    white-space: nowrap;
+}
+
+/* Carousel Arrow Buttons */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-pink);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+.carousel-arrow-left {
+    left: 10px;
+}
+
+.carousel-arrow-right {
+    right: 10px;
+}
+
+/* Disabled state for arrows */
+.carousel-arrow.disabled {
+    background-color: #f0f0f0;
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+
+.small-image-section {
+    margin-top: 40px;
+}
+
+.small-image-section h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* .small-image-box {
+    width: 420px; 
+    height: 120px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+} */
+
+.small-image-box img {
+    width: 300px;
+    height: 150px;
+}
+
+
