@@ -88,31 +88,71 @@ body {
     cursor: pointer;
 }
 
-.header-actions button {
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Header Buttons as Links */
+.btn-login, .btn-signup {
+    display: inline-block;
     padding: 10px 16px;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    border: none;
+    text-decoration: none; /* Remove underline from <a> */
     transition: 0.3s;
+    font-size: 14px;
 }
 
+/* Login Button */
 .btn-login {
     background: transparent;
     color: var(--primary-pink);
+    border: 2px solid var(--primary-pink);
+    margin-left: 40px;
 }
 
 .btn-login:hover {
     background: rgba(255,43,133,0.1);
 }
 
+/* Signup Button */
 .btn-signup {
     background: var(--primary-pink);
-    color: white;
+    color: #fff;
+    border: 2px solid var(--primary-pink);
 }
 
 .btn-signup:hover {
     background: #e02475;
+}
+
+.lang-selector {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lang-selector:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.cart-icon {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-icon:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
 /* Navigation */
@@ -143,7 +183,6 @@ body {
     width: 100%;
     background-color: #fff;
     padding: 25px 0;
-    
     position: relative;
     z-index: 999;
 }
@@ -178,7 +217,6 @@ body {
     box-shadow: 0 0 0 5px rgba(215, 15, 100, 0.1);
 }
 
-
 /* Content Area */
 .content-area {
     padding: 40px 0;
@@ -186,37 +224,28 @@ body {
 
 /* Main Wrapper: QR Left 30% + Promo Right 70% */
 .main-content-wrapper {
-    /* YEH ZAROORI HAI: Yeh space create karta hai left-side fixed panel ke liye */
-    padding-left: 30%; 
-    /* Purani height property nahi chahiye */
+    padding-left: 30%;
 }
 
 .left-section {
-    /* YEH SECTION AB SCREEN KE SAATH FIX HO JAYEGI */
     position: fixed;
     top: 0;
     left: 0;
     width: 30%;
-    height: 100vh; /* Puri screen height cover karega */
-    background-color: #f8f8f8; /* Background color add kiya taaki woh visible rahe */
+    height: 100vh;
+    background-color: #f8f8f8;
     padding: 20px;
-    z-index: 998; /* Header se neeche rehne ke liye (header ki z-index 1000 hai) */
-    
-    /* Iske andar wale content (QR box) ko vertically center karne ke liye */
+    z-index: 998;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .right-section {
-    /* Ab yeh section wrapper ki poori width le sakta hai */
     width: 100%;
-    /* Agar iske content zyada ho jayega, toh iska khudka scrollbar aa jayega */
     overflow-y: auto;
-    /* Right side ke content ko scrollbar se thoda dur rakhne ke liye padding */
-    padding-right: 10px; 
+    padding-right: 10px;
 }
-
 
 /* QR Box */
 .qr-box {
@@ -225,8 +254,8 @@ body {
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    width: 100%; /* Box ko full width bana diya */
-    max-width: 280px; /* Lekin ek maximum width set ki */
+    width: 100%;
+    max-width: 280px;
     margin-top: 30%;
 }
 
@@ -277,7 +306,6 @@ body {
     background-color: #e02475;
 }
 
-
 /* Promo Banner Right Section */
 .promo-banner {
     display: flex;
@@ -327,139 +355,203 @@ body {
     height: auto;
 }
 
-/* Restaurant Cards */
-.restaurant-listings h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+/* Restaurant Cards Wrapper */
+.restaurant-carousel-wrapper {
+    position: relative;
 }
 
-.restaurant-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 25px;
+/* Restaurant Carousel */
+.restaurant-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
+.restaurant-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Restaurant Card */
 .restaurant-card {
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    flex: 0 0 230px;
 }
 
 .restaurant-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* Image Container */
 .card-image-container {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 150px;
+    overflow: hidden;
 }
 
 .card-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
 }
 
+.restaurant-card:hover .card-image-container img {
+    transform: scale(1.05);
+}
+
+/* Promo Tags */
 .promo-tag {
     position: absolute;
-    top: 10px;
     left: 10px;
-    background-color: var(--primary-pink);
-    color: white;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
     font-weight: 700;
+    color: white;
+    z-index: 2;
 }
 
-/* First tag */
-.tag1 {
+.tag-1 {
     top: 10px;
+    background-color: var(--primary-pink);
 }
 
-/* Second tag (just below first one) */
-.tag2 {
-    top: 35px;
-    background-color: #333; /* optional: different color */
+.tag-2 {
+    top: 40px;
+    background-color: #333;
 }
 
+/* Card Content */
 .card-content {
-    padding: 15px;
+    padding: 12px;
 }
 
 .card-content h4 {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 8px;
+    color: var(--dark-gray);
+    margin: 0 0 8px 0;
 }
 
+/* Card Details */
 .card-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
-    color: #666;
     margin-bottom: 8px;
 }
 
+.delivery-time {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Rating */
 .card-rating {
     display: flex;
     align-items: center;
-    background-color: #48c479;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 .card-rating i {
-    margin-right: 4px;
-    font-size: 10px;
+    color: #ff9800;
+    margin-right: 5px;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .main-content-wrapper {
-        flex-direction: column;
-    }
-    .left-section, .right-section {
-        flex: 1 1 100%;
-    }
-    .promo-banner {
-        flex-direction: column;
-        text-align: center;
-    }
-    .promo-left {
-        align-items: center;
-    }
-    .app-store-buttons {
-        flex-direction: row;
-        justify-content: center;
-    }
+.card-rating span {
+    font-weight: 500;
+    color: #333;
 }
 
+/* Additional Info */
+.card-additional-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.cuisine-type {
+    color: #666;
+}
+
+.price {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Grid Layout */
+.restaurant-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 24px;
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--primary-pink);
+    color: #fff;
+}
+
+.carousel-arrow-left {
+    left: -20px;
+}
+
+.carousel-arrow-right {
+    right: -20px;
+}
 
 /* --- NEW: Food Categories Carousel Styling --- */
 .carousel h3 {
     font-size: 32px;
     margin-bottom: 20px;
+    padding-top: 10px;
 }
 
 .food-categories-carousel {
     position: relative;
     width: 100%;
     margin: 40px 0;
-    overflow: hidden; /* Hide the overflowing items */
+    overflow: hidden;
 }
 
 .categories-slider-container {
     display: flex;
-    transition: transform 0.4s ease-in-out; /* Smooth sliding transition */
+    transition: transform 0.4s ease-in-out;
 }
 
 .categories-slider-list {
@@ -467,20 +559,19 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 15px; /* Space between items */
+    gap: 15px;
 }
 
 .category-item {
-    flex: 0 0 auto; /* Items won't shrink or grow */
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
-    min-width: 100px; /* Set a minimum width for items */
+    min-width: 100px;
 }
 
-/* NEW: Outer circular wrapper */
 .category-icon-wrapper {
     width: 80px;
     height: 80px;
@@ -493,50 +584,22 @@ body {
     transition: transform 0.2s, background-color 0.2s;
 }
 
-
-/* UPDATED: Inner image styling */
 .category-icon-wrapper img {
-    width: 80px; /* Image is smaller than the wrapper */
+    width: 80px;
     height: 80px;
-    border-radius: 50%;
+    border-radius: 50% 50% 0 0;
     object-fit: cover;
 }
 
-/* UPDATED: Hover effect on the wrapper */
 .category-item:hover .category-icon-wrapper {
     transform: scale(1.05);
-    background-color: #fce4ec; /* Light pink background on hover */
+    background-color: #fce4ec;
 }
 
 .category-item span {
     font-size: 14px;
     color: red;
     white-space: nowrap;
-}
-
-/* Carousel Arrow Buttons */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    color: var(--primary-pink);
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.carousel-arrow:hover {
-    background-color: var(--primary-pink);
-    color: white;
 }
 
 .carousel-arrow-left {
@@ -547,7 +610,6 @@ body {
     right: 10px;
 }
 
-/* Disabled state for arrows */
 .carousel-arrow.disabled {
     background-color: #f0f0f0;
     color: #ccc;
@@ -565,20 +627,189 @@ body {
     margin-bottom: 15px;
 }
 
-/* .small-image-box {
-    width: 420px; 
-    height: 120px;
+.small-image-boxes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.small-image-box {
+    flex: 1 1 30%;
     background: #f5f5f5;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-} */
-
-.small-image-box img {
-    width: 300px;
-    height: 150px;
+    padding: 10px;
 }
 
+.small-image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 
+/* Responsive */
+@media (max-width: 992px) {
+    .header-top {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .address-bar {
+        order: 3;
+        flex-basis: 100%;
+        margin-top: 10px;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .main-content-wrapper {
+        padding-left: 0;
+    }
+
+    .left-section {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .qr-box {
+        margin-top: 0;
+    }
+
+    .right-section {
+        padding-right: 0;
+    }
+
+    .promo-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-left {
+        align-items: center;
+    }
+
+    .promo-right {
+        margin-top: 20px;
+    }
+
+    .small-image-box {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .logo span {
+        font-size: 18px;
+    }
+
+    .search-bar-large input {
+        font-size: 16px;
+        padding: 15px 20px 15px 50px;
+    }
+
+    .section-title, .carousel h3 {
+        font-size: 24px;
+    }
+
+    .small-image-section h3 {
+        font-size: 22px;
+    }
+
+    .restaurant-card {
+        flex: 0 0 200px;
+    }
+
+    .small-image-box {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-top {
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .btn-login {
+        margin-left: 15px;
+    }
+
+    .btn-login, .btn-signup {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .nav-item {
+        padding: 12px 15px;
+    }
+
+    .search-bar-large input {
+        font-size: 14px;
+        padding: 12px 15px 12px 45px;
+    }
+
+    .search-bar-large i {
+        left: 15px;
+        font-size: 18px;
+    }
+
+    .section-title, .carousel h3 {
+        font-size: 20px;
+    }
+
+    .category-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .category-icon-wrapper img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .category-item span {
+        font-size: 12px;
+    }
+
+    .restaurant-card {
+        flex: 0 0 160px;
+    }
+
+    .card-image-container {
+        height: 120px;
+    }
+
+    .card-content h4 {
+        font-size: 16px;
+    }
+
+    .promo-left h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-promo {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

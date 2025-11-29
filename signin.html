@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodpanda Auth</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Auth CSS -->
+    <style>:root {
+    --primary-pink: #ff2b85;
+    --dark-gray: #333;
+    --light-gray: #f8f8f8;
+    --white: #fff;
+    --font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Left Panel */
+.auth-left-panel {
+    flex: 1;
+    background-color: #fff0f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.auth-left-panel .auth-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.qr-code img {
+    width: 120px;
+    margin: 20px 0;
+}
+
+.app-store-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.app-store-buttons img {
+    height: 40px;
+}
+
+/* Right Panel */
+.auth-right-panel {
+    flex: 1;
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.auth-form {
+    display: none;
+    flex-direction: column;
+}
+
+.auth-form.active-form {
+    display: flex;
+}
+
+.auth-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.auth-form p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-pink);
+}
+
+.forgot-password {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--primary-pink);
+    text-decoration: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-pink);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #e02475;
+}
+
+.form-switch {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-switch a {
+    color: var(--primary-pink);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .auth-left-panel, .auth-right-panel {
+        flex: 1 1 100%;
+        padding: 30px;
+    }
+
+    .auth-left-panel {
+        order: 2;
+    }
+
+    .auth-right-panel {
+        order: 1;
+    }
+}
+</style>
+</head>
+<body>
+
+<section class="auth-page">
+    <div class="auth-container">
+
+        <!-- Right Panel: Login/Signup -->
+        <div class="auth-right-panel">
+            <div class="form-container">
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active-form">
+                    <h2>Welcome back!</h2>
+                    <p>Please login to your account</p>
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                    <button type="submit" class="btn-submit">Log in</button>
+                    <p class="form-switch">
+                        Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                    </p>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <h2>Create new account</h2>
+                    <p>Please sign up to continue</p>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Sign up</button>
+                    <p class="form-switch">
+                        Already have an account? <a href="#" id="show-login">Log in</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>// Switch between login and signup forms
+const loginForm = document.getElementById("login-form");
+const signupForm = document.getElementById("signup-form");
+
+document.getElementById("show-signup").addEventListener("click", (e) => {
+    e.preventDefault();
+    loginForm.classList.remove("active-form");
+    signupForm.classList.add("active-form");
+});
+
+document.getElementById("show-login").addEventListener("click", (e) => {
+    e.preventDefault();
+    signupForm.classList.remove("active-form");
+    loginForm.classList.add("active-form");
+});
+</script>
+</body>
+</html>

@@ -138,3 +138,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check for arrow states
     updateCarousel();
 });
+
+const carousel = document.querySelector('.restaurant-carousel');
+const leftBtn = document.getElementById('restaurant-arrow-left');
+const rightBtn = document.getElementById('restaurant-arrow-right');
+
+const scrollAmount = 300; // pixels per click
+
+leftBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+rightBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});

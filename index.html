@@ -57,10 +57,9 @@
 
                 <!-- Action Buttons Section -->
                 <div class="header-actions">
-                    <!-- ID ADDED HERE -->
-                    <button id="header-login-btn" class="btn btn-login">Log in</button>
-                    <!-- ID ADDED HERE -->
-                    <button id="header-signup-btn" class="btn btn-signup">Sign up for free delivery</button>
+                    <a href="signin.html" class="btn btn-login">Log in</a>
+<a href="signin.html" class="btn btn-signup">Sign up for free delivery</a>
+
                     <div class="lang-selector">
                         EN <i class="fa-solid fa-chevron-down"></i>
                     </div>
@@ -227,89 +226,121 @@
 <div class="small-image-section">
     <h3>Daily Your Deals</h3>
 
-    <div class="small-image-box">
-        <img src="assets/images/desktop.png" alt="Brand">
+    <div class="small-image-boxes">
+        <div class="small-image-box">
+            <img src="assets/images/desktop.png" alt="Brand 1">
+        </div>
+        <div class="small-image-box">
+            <img src="assets/images/desktop1.png" alt="Brand 2">
+        </div>
+        <div class="small-image-box">
+            <img src="assets/images/desktop1.png" alt="Brand 3">
+        </div>
     </div>
 </div>
 
 
+
 <!-- Restaurant Listings -->
-            <div class="restaurant-listings">
-                <h3>Cuisines</h3>
-                <div class="restaurant-grid">
-                    <div class="restaurant-card">
-                        <div class="card-image-container">
-                            <img src="assets/images/1-listing.jpg" alt="Restaurant 1">
-                            <span class="promo-tag tag-1">10% off</span>
-                            <span class="promo-tag tag-2">Rs.250 cashback: jcda...</span>
-                        </div>
-                        <div class="card-content">
-                            <h4>KFC - Pakistan</h4>
-                            <div class="card-details">
-                                <span class="delivery-time">25-35 min</span>
-                                <span class="delivery-fee">Free delivery</span>
-                            </div>
-                            <div class="card-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                    </div>
+           <div class="restaurant-listings">
+    <h3>Same Taste, Same Price</h3>
 
-                    <div class="restaurant-card">
-                        <div class="card-image-container">
-                            <img src="https://i.ibb.co/L5F2p0K/restaurant2.jpg" alt="Restaurant 2">
-                        </div>
-                        <div class="card-content">
-                            <h4>McDonald's</h4>
-                            <div class="card-details">
-                                <span class="delivery-time">20-30 min</span>
-                                <span class="delivery-fee">Rs. 49 delivery</span>
-                            </div>
-                            <div class="card-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <span>4.3</span>
-                            </div>
-                        </div>
-                    </div>
+    <div class="restaurant-carousel-wrapper">
+        <button class="carousel-arrow carousel-arrow-left" id="restaurant-arrow-left">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-                    <div class="restaurant-card">
-                        <div class="card-image-container">
-                            <img src="https://i.ibb.co/h9sQ2cF/restaurant1.jpg" alt="Restaurant 3">
-                            <span class="promo-tag">30% OFF</span>
+        <div class="restaurant-carousel">
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/1-listing.jpg" alt="Mummy's Kitchen">
+                    <span class="promo-tag tag-1">10% off selected items</span>
+                    <span class="promo-tag tag-2">Rs.250 off Rs.800: na...</span>
+                </div>
+                <div class="card-content">
+                    <h4>Mummy's Kitchen</h4>
+                    <div class="card-rating">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="card-content">
-                            <h4>The Pizza Hub</h4>
-                            <div class="card-details">
-                                <span class="delivery-time">40-50 min</span>
-                                <span class="delivery-fee">Free delivery</span>
-                            </div>
-                            <div class="card-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <span>4.7</span>
-                            </div>
-                        </div>
+                        <span class="rating-value">5</span>
+                        <span class="rating-count">(1000+)</span>
                     </div>
-
-                    <div class="restaurant-card">
-                        <div class="card-image-container">
-                            <img src="https://i.ibb.co/L5F2p0K/restaurant2.jpg" alt="Restaurant 4">
-                        </div>
-                        <div class="card-content">
-                            <h4>Howdy!</h4>
-                            <div class="card-details">
-                                <span class="delivery-time">35-45 min</span>
-                                <span class="delivery-fee">Rs. 79 delivery</span>
-                            </div>
-                            <div class="card-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <span>4.4</span>
-                            </div>
-                        </div>
+                    <div class="card-details">
+                        <span class="delivery-time">30-45 min</span>
                     </div>
-
+                    <div class="card-additional-info">
+                        <span class="cuisine-type">Pakistani</span>
+                        <span class="price">Rs.79</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/listing2.webp" alt="Restaurant 2">
+                </div>
+                <div class="card-content">
+                    <h4>McDonald's</h4>
+                    <div class="card-details">
+                        <span class="delivery-time">20-30 min</span>
+                        <span class="delivery-fee">Rs. 49 delivery</span>
+                    </div>
+                    <div class="card-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/listing1.webp" alt="Restaurant 3">
+                    <span class="promo-tag">30% OFF</span>
+                </div>
+                <div class="card-content">
+                    <h4>The Pizza Hub</h4>
+                    <div class="card-details">
+                        <span class="delivery-time">40-50 min</span>
+                        <span class="delivery-fee">Free delivery</span>
+                    </div>
+                    <div class="card-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.7</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/1-listing.jpg" alt="Restaurant 4">
+                </div>
+                <div class="card-content">
+                    <h4>Howdy!</h4>
+                    <div class="card-details">
+                        <span class="delivery-time">35-45 min</span>
+                        <span class="delivery-fee">Rs. 79 delivery</span>
+                    </div>
+                    <div class="card-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more cards here -->
+        </div>
+
+        <button class="carousel-arrow carousel-arrow-right" id="restaurant-arrow-right">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
 
                 </div>
             </div>
@@ -319,72 +350,7 @@
     </main>
 
     <!-- NEW: Login/Signup Page Section -->
-    <section id="auth-page" class="page-section">
-        <div class="auth-container">
-            <!-- Left Panel: App Download -->
-            <div class="auth-left-panel">
-                <div class="app-download-content">
-                    <img src="https://i.ibb.co/L8y7b9C/foodpanda-logo.png" alt="foodpanda logo" class="auth-logo">
-                    <div class="qr-code">
-                        <!-- Placeholder QR Code Image -->
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.foodpanda.pk/" alt="QR Code">
-                    </div>
-                    <h3>Unlock more app-only deals</h3>
-                    <p>Download now.</p>
-                    <div class="app-store-buttons">
-                        <a href="#"><img src="https://i.ibb.co/L0fC00R/google-play-badge.png" alt="Get it on Google Play"></a>
-                        <a href="#"><img src="https://i.ibb.co/hVMGsjF/app-store-badge.png" alt="Download on the App Store"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Panel: Login/Signup Form -->
-            <div class="auth-right-panel">
-                <div class="form-container">
-                    <!-- Login Form -->
-                    <form id="login-form" class="auth-form active-form">
-                        <h2>Welcome back!</h2>
-                        <p>Please login to your account</p>
-                        <div class="input-group">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <a href="#" class="forgot-password">Forgot password?</a>
-                        <button type="submit" class="btn-submit">Log in</button>
-                        <p class="form-switch">
-                            Don't have an account? <a href="#" id="show-signup">Sign up</a>
-                        </p>
-                    </form>
-
-                    <!-- Signup Form -->
-                    <form id="signup-form" class="auth-form">
-                        <h2>Create new account</h2>
-                        <p>Please sign up to continue</p>
-                        <div class="input-group">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Name" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <button type="submit" class="btn-submit">Sign up</button>
-                        <p class="form-switch">
-                            Already have an account? <a href="#" id="show-login">Log in</a>
-                        </p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Link to our JavaScript file -->
     <script src="script.js"></script>
