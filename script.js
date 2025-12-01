@@ -152,3 +152,73 @@ leftBtn.addEventListener('click', () => {
 rightBtn.addEventListener('click', () => {
     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 });
+
+
+// Get elements
+const leftSection = document.getElementById('leftSection');
+const closeQr = document.getElementById('closeQr');
+
+// Close the QR section when clicking the close button
+closeQr.addEventListener('click', () => {
+    leftSection.style.display = 'none';
+});
+
+
+// Top Brand
+const cardsContainer = document.querySelector('.top-brand-cards');
+const btnLeft = document.querySelector('.top-brand-arrow.left');
+const btnRight = document.querySelector('.top-brand-arrow.right');
+
+function updateArrows() {
+    const scrollLeft = cardsContainer.scrollLeft;
+    const maxScrollLeft = cardsContainer.scrollWidth - cardsContainer.clientWidth;
+
+    btnLeft.style.display = scrollLeft > 0 ? 'flex' : 'none';
+    btnRight.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
+}
+
+// Scroll right
+btnRight.addEventListener('click', () => {
+    cardsContainer.scrollBy({ left: 250, behavior: 'smooth' });
+    setTimeout(updateArrows, 300);
+});
+
+// Scroll left
+btnLeft.addEventListener('click', () => {
+    cardsContainer.scrollBy({ left: -250, behavior: 'smooth' });
+    setTimeout(updateArrows, 300);
+});
+
+// On manual scroll
+cardsContainer.addEventListener('scroll', updateArrows);
+
+// Initialize
+updateArrows();
+
+// Top Shop
+const shopCardsContainer = document.querySelector('.top-shop-cards');
+const shopBtnLeft = document.querySelector('.top-shop-arrow.left');
+const shopBtnRight = document.querySelector('.top-shop-arrow.right');
+
+function updateShopArrows() {
+    const scrollLeft = shopCardsContainer.scrollLeft;
+    const maxScrollLeft = shopCardsContainer.scrollWidth - shopCardsContainer.clientWidth;
+
+    shopBtnLeft.style.display = scrollLeft > 0 ? 'flex' : 'none';
+    shopBtnRight.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
+}
+
+shopBtnRight.addEventListener('click', () => {
+    shopCardsContainer.scrollBy({ left: 250, behavior: 'smooth' });
+    setTimeout(updateShopArrows, 300);
+});
+
+shopBtnLeft.addEventListener('click', () => {
+    shopCardsContainer.scrollBy({ left: -250, behavior: 'smooth' });
+    setTimeout(updateShopArrows, 300);
+});
+
+shopCardsContainer.addEventListener('scroll', updateShopArrows);
+updateShopArrows();
+
+

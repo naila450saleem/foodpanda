@@ -102,27 +102,29 @@
         <div class="container">
             <!-- Left QR + Right Promo Section -->
             <div class="main-content-wrapper">
-                <!-- Left Section: QR Code -->
-                <div class="left-section">
-                    <div class="qr-box">
-                        <h2>Unlock more app-only deals</h2>
-                        <p>Download now</p>
-                        <div class="qr-code">
-                            <img src="assets/images/download QR.png" alt="QR Code">
-                        </div>
-                        <div class="app-store-buttons">
-    <a href="#" class="store-btn">
-        <span>App Store</span>
-        <i class="fa-brands fa-apple"></i>
-    </a>
-    <a href="#" class="store-btn">
-        <span>Play Store</span>
-        <i class="fa-brands fa-google-play"></i>
-    </a>
+               <div class="left-section" id="leftSection">
+    <div class="qr-box" style="position: relative;">
+        <!-- Close Button -->
+        <button id="closeQr" style="position:absolute; top:10px; right:10px; background:none; border:none; color:#fff; font-size:24px; cursor:pointer;">&times;</button>
+
+        <h2>Unlock more app-only deals</h2>
+        <p>Download now</p>
+        <div class="qr-code">
+            <img src="assets/images/download QR.png" alt="QR Code">
+        </div>
+        <div class="app-store-buttons">
+            <a href="#" class="store-btn">
+                <span>App Store</span>
+                <i class="fa-brands fa-apple"></i>
+            </a>
+            <a href="#" class="store-btn">
+                <span>Play Store</span>
+                <i class="fa-brands fa-google-play"></i>
+            </a>
+        </div>
+    </div>
 </div>
 
-                    </div>
-                </div>
 
                 <!-- Right Section: Promo Banner -->
                 <div class="right-section">
@@ -135,6 +137,7 @@
         </div>
     </div>
 </div>
+<!-- promo Section -->
                     <div class="promo-banner">
                         <div class="promo-left">
                             <h2>Sign up for free delivery on your first order</h2>
@@ -224,7 +227,7 @@
 
 <!-- NEW SMALL IMAGE SECTION -->
 <div class="small-image-section">
-    <h3>Daily Your Deals</h3>
+    <h3>Yours daily deals</h3>
 
     <div class="small-image-boxes">
         <div class="small-image-box">
@@ -243,7 +246,7 @@
 
 <!-- Restaurant Listings -->
            <div class="restaurant-listings">
-    <h3>Same Taste, Same Price</h3>
+    <h3>Home Chef</h3>
 
     <div class="restaurant-carousel-wrapper">
         <button class="carousel-arrow carousel-arrow-left" id="restaurant-arrow-left">
@@ -341,15 +344,277 @@
     </div>
 </div>
 
+           <div class="top-brand-section">
+    <h3>Top Brands</h3>
 
+    <div class="top-brand-wrapper">
+        <!-- Left Arrow -->
+        <button class="top-brand-arrow left">&#8592;</button>
+
+        <!-- Cards Container -->
+        <div class="top-brand-cards">
+            <div class="top-brand-card">
+                <img src="assets/images/desktop.png" alt="Brand 1">
+                <div class="brand-info">
+                    <h4>Brand 1</h4>
+                    <p>Best Deals</p>
+                </div>
+            </div>
+            <div class="top-brand-card">
+                <img src="assets/images/brand2.png" alt="Brand 2">
+                <div class="brand-info">
+                    <h4>Brand 2</h4>
+                    <p>Special Offer</p>
+                </div>
+            </div>
+            <div class="top-brand-card">
+                <img src="assets/images/brand3.png" alt="Brand 3">
+                <div class="brand-info">
+                    <h4>Brand 3</h4>
+                    <p>Daily Deals</p>
+                </div>
+            </div>
+            <div class="top-brand-card">
+                <img src="assets/images/brand4.png" alt="Brand 4">
+                <div class="brand-info">
+                    <h4>Brand 4</h4>
+                    <p>Exclusive</p>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Right Arrow -->
+        <button class="top-brand-arrow right">&#8594;</button>
+    </div>
+</div>
+
+<!-- Top Shop -->
+<div class="top-shop-section">
+    <h3>Top Shops</h3>
+
+    <div class="top-shop-wrapper">
+        <!-- Left Arrow -->
+        <button class="top-shop-arrow left">&#8592;</button>
+
+        <!-- Cards Container -->
+        <div class="top-shop-cards">
+            <div class="top-shop-card">
+                <img src="assets/images/desktop.png" alt="Shop 1">
+                <div class="shop-info">
+                    <h4>Shop 1</h4>
+                    <p>Best Deals</p>
                 </div>
             </div>
 
-           
+            <div class="top-shop-card">
+                <img src="assets/images/brand2.png" alt="Shop 2">
+                <div class="shop-info">
+                    <h4>Shop 2</h4>
+                    <p>Special Offer</p>
+                </div>
+            </div>
+
+            <div class="top-shop-card">
+                <img src="assets/images/brand3.png" alt="Shop 3">
+                <div class="shop-info">
+                    <h4>Shop 3</h4>
+                    <p>Daily Deals</p>
+                </div>
+            </div>
+
+            <div class="top-shop-card">
+                <img src="assets/images/brand4.png" alt="Shop 4">
+                <div class="shop-info">
+                    <h4>Shop 4</h4>
+                    <p>Exclusive</p>
+                </div>
+            </div>
+
+            <!-- Add more shops -->
+        </div>
+
+        <!-- Right Arrow -->
+        <button class="top-shop-arrow right">&#8594;</button>
+    </div>
+</div>
+
+
+<!-- Shop Banner -->
+ <!-- Shop Banner -->
+<div class="mobile-app-section">
+
+    <div class="shop-banner">
+        <div class="shop-banner-left">
+
+            <!-- QR Box -->
+<div class="app-qr-box">
+    <img src="assets/images/download QR.png" alt="QR Code">
+</div>
+
+
+            <!-- Text + Headings + Buttons -->
+            <div class="mobile-app-content">
+
+                <!-- Headings -->
+                <div class="mobile-app-headings">
+                    <h2 class="app-heading-main">
+                        Unlock exclusive deals and more in our 
+                        <span class="pink-text">mobile app</span>
+                    </h2>
+
+                    <p class="app-heading-sub">
+                        Meal for one, fast checkout, food & grocery deals: get it all on foodpanda.
+                    </p>
+                </div>
+
+                <!-- Download Title -->
+                <h3 class="download-title">Download the app</h3>
+
+                <!-- App Store Buttons -->
+                <!-- App Store + Play Store Buttons -->
+<div class="app-download-buttons">
+    <a href="#" class="download-btn">
+        <span>App Store</span>
+        <i class="fa-brands fa-apple"></i>
+    </a>
+
+    <a href="#" class="download-btn">
+        <span>Play Store</span>
+        <i class="fa-brands fa-google-play"></i>
+    </a>
+</div>
+
+
+            </div>
+        </div>
+
+        <!-- Mascot Image -->
+        <div class="shop-banner-right">
+            <img src="assets/images/banner-logo.png" alt="Mascot">
+        </div>
+    </div>
+</div>
+
+<!-- Top Restaurants Section -->
+<div class="top-restaurants">
+    <h3>Home Chef</h3>
+
+    <div class="homechef-carousel">
+
+        <!-- Card 1 -->
+        <!-- HomeChef Card -->
+<div class="homechef-card">
+
+    <div class="homechef-image">
+        <img src="assets/images/1-listing.jpg" alt="Mummy's Kitchen">
+        <span class="homechef-tag tag-1">10% off</span>
+        <span class="homechef-tag tag-2">Rs.250 off Rs.800</span>
+    </div>
+
+    <div class="homechef-content">
+
+        <!-- Title + Rating Row -->
+        <div class="homechef-title-row">
+            <h4>Mummy's Kitchen</h4>
+
+            <div class="homechef-rating">
+    <i class="fa-solid fa-star"></i>
+    <span class="rate">4.9</span>
+    <span class="count">(58)</span>
+</div>
+
+        </div>
+
+        <!-- Delivery Info -->
+        <div class="homechef-details">
+            <span class="delivery-time">30-45 min</span>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="homechef-extra">
+            <span class="cuisine-type">Pakistani</span>
+            <span class="price">Rs.79</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing1.webp" alt="The Pizza Hub">
+                <span class="homechef-tag">30% OFF</span>
+            </div>
+
+            <div class="homechef-content">
+                <h4>The Pizza Hub</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">40-50 min</span>
+                    <span class="delivery-fee">Free delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.7</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/1-listing.jpg" alt="Howdy!">
+            </div>
+
+            <div class="homechef-content">
+                <h4>Howdy!</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">35-45 min</span>
+                    <span class="delivery-fee">Rs.79 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- You can duplicate cards safely now -->
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- NEW: Login/Signup Page Section -->
+ 
    
 
     <!-- Link to our JavaScript file -->

@@ -22,9 +22,10 @@ body {
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 0 20px;
+   padding: 0 30px;   /* top-bottom 0, left-right 20px */
+margin-right: 40px; /* sirf left badha diya */    
 }
 
 /* Header */
@@ -224,14 +225,14 @@ body {
 
 /* Main Wrapper: QR Left 30% + Promo Right 70% */
 .main-content-wrapper {
-    padding-left: 30%;
+    padding-left: 25%;
 }
 
 .left-section {
     position: fixed;
     top: 0;
     left: 0;
-    width: 30%;
+    width: 25%;
     height: 100vh;
     background-color: #f8f8f8;
     padding: 20px;
@@ -239,24 +240,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* margin-left: -48px; */
 }
 
 .right-section {
     width: 100%;
     overflow-y: auto;
     padding-right: 10px;
+    margin-left: 5px;
 }
 
 /* QR Box */
 .qr-box {
-    background-color: #fff0f5;
-    padding: 20px;
+    background-color: #2E3237;
+    padding: 80px 20px 20px 20px; /* top padding increased */
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     margin-top: 30%;
+    margin-left: -20%;
+    height: 240px;
 }
 
 .qr-box h2 {
@@ -272,10 +277,16 @@ body {
 }
 
 .qr-code img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 12px;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: -60px; /* adjust how high you want it */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid #2E3237;
+    border-radius: 12px;
 }
+
 
 .app-store-buttons {
     display: flex;
@@ -284,27 +295,40 @@ body {
     margin-top: 15px;
 }
 
+/* App Store / Play Store Buttons Wrapper */
+.app-store-buttons {
+    display: flex;
+    gap: 8px;               /* smaller gap */
+    justify-content: center;
+    margin-top: 12px;
+}
+
+/* Individual Button Styling */
 .store-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background-color: var(--primary-pink);
-    color: #fff;
+    gap: 4px;               /* less space between icon and text */
+    padding: 6px 10px;      /* smaller padding */
+    background-color: #fff;
+    color: #000;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 12px;        /* smaller font */
     border-radius: 6px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s ease;
 }
 
+/* Icon inside button */
 .store-btn i {
-    font-size: 16px;
+    font-size: 14px;        /* smaller icon */
 }
 
+/* Hover effect */
 .store-btn:hover {
     background-color: #e02475;
+    transform: scale(1.05);
 }
+
 
 /* Promo Banner Right Section */
 .promo-banner {
@@ -359,6 +383,16 @@ body {
 .restaurant-carousel-wrapper {
     position: relative;
 }
+
+.restaurant-listings h3 {
+    font-size: 1.5rem;       /* Adjust the size as needed */
+    font-weight: 700;        /* Bold text */
+    color: #333333;          /* Dark gray for readability */
+    padding-top: 40px ;
+    margin-bottom: 16px;     /* Space below the heading */
+    letter-spacing: 1px;     /* Slight spacing for style */
+}
+
 
 /* Restaurant Carousel */
 .restaurant-carousel {
@@ -560,6 +594,7 @@ body {
     padding: 0;
     margin: 0;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .category-item {
@@ -624,7 +659,8 @@ body {
 .small-image-section h3 {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    padding-top: 16px;
 }
 
 .small-image-boxes {
@@ -813,3 +849,486 @@ body {
         font-size: 14px;
     }
 }
+
+/* Top Brand */
+.top-brand-section {
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.top-brand-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.top-brand-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-brand-cards {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.top-brand-cards::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Card Styling */
+.top-brand-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.top-brand-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.brand-info h4 {
+    font-size: 1rem;
+    margin: 0;
+    color: #000;
+}
+
+.brand-info p {
+    font-size: 0.85rem;
+    margin: 2px 0 0;
+    color: #666;
+}
+
+/* Arrows */
+.top-brand-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-pink);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    display: none; /* initially hidden */
+}
+
+.top-brand-arrow.left {
+    left: -20px;
+}
+
+.top-brand-arrow.right {
+    right: -20px;
+}
+
+/* Top Shop */
+.top-shop-section {
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.top-shop-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.top-shop-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-shop-cards {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.top-shop-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Card Styling */
+.top-shop-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.top-shop-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.shop-info h4 {
+    font-size: 1rem;
+    margin: 0;
+    color: #000;
+}
+
+.shop-info p {
+    font-size: 0.85rem;
+    margin: 2px 0 0;
+    color: #666;
+}
+
+/* Arrows */
+.top-shop-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-pink);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    display: none;
+}
+
+.top-shop-arrow.left {
+    left: -20px;
+}
+
+.top-shop-arrow.right {
+    right: -20px;
+}
+
+
+/* Shop bannber */
+/* Section Wrapper */
+.mobile-app-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+/* Headings */
+.mobile-app-headings {
+    margin-bottom: 10px;
+}
+
+.app-heading-main {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.pink-text {
+    color: var(--primary-pink);
+}
+
+.app-heading-sub {
+    font-size: 1.1rem;
+    color: #333;
+    max-width: 650px;
+    line-height: 1.4;
+}
+
+/* Banner Box */
+.shop-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFDDDD;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 20px;
+}
+
+/* Left Side */
+.shop-banner-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* QR Styling */
+/* QR Box clean styling */
+.app-qr-box {
+    width: 110px;               /* QR size */
+    height: 110px;
+    background: #ffffff;        /* white base for QR contrast */
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* QR Image */
+.app-qr-box img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+
+/* Left Text + Buttons */
+.shop-banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shop-banner-text h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* App Store + Play Store Buttons */
+.app-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.app-buttons img {
+    height: 42px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.app-buttons img:hover {
+    transform: scale(1.05);
+}
+
+/* Right Side Image */
+.shop-banner-right {
+    flex: 0 0 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-banner-right img {
+    width: 130px;
+    height: auto;
+}
+
+/* Buttons wrapper */
+.app-download-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Individual buttons */
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: #fff;           /* white background */
+    color: var(--primary-pink);       /* pink text */
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--primary-pink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Icon inside button */
+.download-btn i {
+    font-size: 16px;
+}
+
+/* Hover effect: slightly zoom + shadow */
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ----------------------------------
+   Top Restaurants / Home Chef Title
+---------------------------------- */
+.top-restaurants h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+    padding-top: 40px;
+    letter-spacing: 1px;
+}
+
+
+/* ----------------------------------
+   Homechef Carousel (Cards Wrapper)
+---------------------------------- */
+.homechef-carousel {
+    display: flex;
+    flex-wrap: wrap;                 /* 3 cards per row */
+    gap: 20px;
+    overflow-x: auto;               /* horizontal scroll if overflow */
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+
+.homechef-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ----------------------------------
+   Single Card
+---------------------------------- */
+/* Card Container */
+.homechef-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    width: 280px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.homechef-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.homechef-image {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.homechef-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Promo Tags */
+.homechef-tag {
+    position: absolute;
+    left: 10px;
+    padding: 4px 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.tag-1 { top: 10px; background: #ff2b85; }
+.tag-2 { top: 40px; background: #333; }
+
+/* Content Area */
+.homechef-content {
+    padding: 12px;
+}
+
+/* Title + Rating Row */
+.homechef-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.homechef-title-row h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Rating */
+.homechef-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.homechef-rating i {
+    color: #ffb800; /* star color */
+}
+
+.homechef-rating .rate {
+    color: #000; /* rating ka color */
+}
+
+.homechef-rating .count {
+    color: #888; /* grey color for (58) */
+    font-weight: 400;
+}
+
+
+/* Delivery */
+.homechef-details {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Extra Info */
+.homechef-extra {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.cuisine-type { color: #666; }
+.price { color: #333; font-weight: 700; }
+
+
+
+/* ----------------------------------
+   Cuisine & Price Row
+---------------------------------- */
+
+
+
+
+
