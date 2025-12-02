@@ -282,3 +282,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Mobile Tab Switching
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile tab items
+    const tabItems = document.querySelectorAll('.tab-item');
+    
+    tabItems.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabItems.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Get the tab type
+            const tabType = this.getAttribute('data-tab');
+            console.log(`Switched to ${tabType} tab`);
+            
+            // Here you can add logic to show/hide content based on tab
+        });
+    });
+    
+    // Sync cart count between mobile and desktop
+    const cartCount = document.querySelector('.cart-count');
+    const desktopCartIcon = document.querySelector('.cart-icon');
+    
+    if (desktopCartIcon && cartCount) {
+        desktopCartIcon.addEventListener('click', function() {
+            let count = parseInt(cartCount.textContent);
+            count++;
+            cartCount.textContent = count;
+            
+            // Animation
+            cartCount.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartCount.style.transform = 'scale(1)';
+            }, 300);
+        });
+    }
+});
+
+// mobile filters
+const mobileBtn = document.getElementById("mobileFilterBtn");
+const filtersBox = document.querySelector(".filters-box");
+const closeIcon = mobileBtn.querySelector(".close-icon");
+const leftPart = mobileBtn.querySelector(".left-part");
+
+mobileBtn.addEventListener("click", () => {
+    if (filtersBox.style.display === "block") {
+        filtersBox.style.display = "none";   // hide filters
+        closeIcon.style.display = "none";    // hide close icon
+        leftPart.innerHTML = `<i class="fas fa-sliders-h"></i> Filters`; // reset text
+    } else {
+        filtersBox.style.display = "block";  // show filters
+        closeIcon.style.display = "block";   // show close icon
+        leftPart.innerHTML = `<i class="fas fa-sliders-h"></i> Filters`; // same text
+    }
+});

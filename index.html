@@ -93,6 +93,68 @@
         </div>
     </header>
 
+    <!-- Mobile Header (res.png style) - Add this AFTER your existing header -->
+<div class="mobile-header">
+    <!-- Top Row: Icons + Logo -->
+    <div class="mobile-top-row">
+        <!-- Left Icon (Sign In) -->
+        <div class="mobile-left-icon">
+            <a href="signin.html" class="mobile-icon-link">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+        
+        <!-- Center Logo -->
+        <div class="mobile-center-logo">
+            <a href="#" class="mobile-logo">
+                <span class="logo-text">foodpanda</span>
+            </a>
+        </div>
+        
+        <!-- Right Icon (Cart) -->
+        <div class="mobile-right-icon">
+            <a href="#" class="mobile-icon-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Address Row -->
+    <div class="mobile-address-row">
+        <div class="address-display">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Service Road W Islamabad</span>
+        </div>
+    </div>
+    
+    <!-- Menu Tabs Row -->
+    <div class="mobile-menu-tabs">
+    <div class="tabs-container">
+        <button class="tab-item active" data-tab="delivery">
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Delivery</span>
+        </button>
+        <button class="tab-item" data-tab="pickup">
+            <i class="fa-solid fa-person-walking"></i>
+            <span>Pick-up</span>
+        </button>
+        <button class="tab-item" data-tab="pandamart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span>pandamart</span>
+        </button>
+        <button class="tab-item" data-tab="shops">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Shops</span>
+        </button>
+        <button class="tab-item" data-tab="caterers">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Caterers</span>
+        </button>
+    </div>
+</div>
+</div>
+
 
 
 
@@ -128,6 +190,14 @@
     </div>
 
     <!-- FILTERS BOX OUTSIDE QR BOX -->
+ <!-- MOBILE FILTER BUTTON -->
+<button class="mobile-filter-toggle" id="mobileFilterBtn">
+    <span class="left-part">
+        <i class="fas fa-sliders-h"></i> Filters
+    </span>
+    <i class="fas fa-times close-icon"></i>
+</button>
+
     <div class="filters-box">
         <h3 class="filter-title">Filters</h3>
 
