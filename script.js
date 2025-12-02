@@ -154,14 +154,13 @@ rightBtn.addEventListener('click', () => {
 });
 
 
-// Get elements
-const leftSection = document.getElementById('leftSection');
+const qrBox = document.querySelector('.qr-box');
 const closeQr = document.getElementById('closeQr');
 
-// Close the QR section when clicking the close button
 closeQr.addEventListener('click', () => {
-    leftSection.style.display = 'none';
+    qrBox.style.display = 'none';  // Only QR hide
 });
+
 
 
 // Top Brand
@@ -222,3 +221,64 @@ shopCardsContainer.addEventListener('scroll', updateShopArrows);
 updateShopArrows();
 
 
+
+
+
+// Add this to your existing script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Show more/less functionality for cuisines
+    const showMoreBtn = document.getElementById('showMoreCuisines');
+    const cuisineList = document.querySelector('.cuisine-list');
+    
+    if (showMoreBtn && cuisineList) {
+        showMoreBtn.addEventListener('click', function() {
+            // Toggle expanded class
+            cuisineList.classList.toggle('expanded');
+            this.classList.toggle('expanded');
+            
+            // Change button text and icon
+            if (this.classList.contains('expanded')) {
+                this.innerHTML = 'Show less <i class="fas fa-chevron-up"></i>';
+            } else {
+                this.innerHTML = 'Show more <i class="fas fa-chevron-down"></i>';
+            }
+            
+            // Scroll to show more button if expanded
+            if (cuisineList.classList.contains('expanded')) {
+                setTimeout(() => {
+                    showMoreBtn.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 100);
+            }
+        });
+    }
+    
+    // Optional: Search functionality for cuisines
+    const searchInput = document.querySelector('.search-cuisine');
+    if (searchInput && cuisineList) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const items = cuisineList.querySelectorAll('.check-row');
+            
+            items.forEach(item => {
+                const text = item.querySelector('span').textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // If searching, expand the list automatically
+            if (searchTerm.length > 0) {
+                cuisineList.classList.add('expanded');
+                if (showMoreBtn) {
+                    showMoreBtn.classList.add('expanded');
+                    showMoreBtn.innerHTML = 'Show less <i class="fas fa-chevron-up"></i>';
+                }
+            }
+        });
+    }
+});

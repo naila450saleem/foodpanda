@@ -103,15 +103,18 @@
             <!-- Left QR + Right Promo Section -->
             <div class="main-content-wrapper">
                <div class="left-section" id="leftSection">
+
+    <!-- QR BOX -->
     <div class="qr-box" style="position: relative;">
-        <!-- Close Button -->
         <button id="closeQr" style="position:absolute; top:10px; right:10px; background:none; border:none; color:#fff; font-size:24px; cursor:pointer;">&times;</button>
 
         <h2>Unlock more app-only deals</h2>
         <p>Download now</p>
+
         <div class="qr-code">
             <img src="assets/images/download QR.png" alt="QR Code">
         </div>
+
         <div class="app-store-buttons">
             <a href="#" class="store-btn">
                 <span>App Store</span>
@@ -123,7 +126,115 @@
             </a>
         </div>
     </div>
+
+    <!-- FILTERS BOX OUTSIDE QR BOX -->
+    <div class="filters-box">
+        <h3 class="filter-title">Filters</h3>
+
+        <!-- Sort By -->
+        <div class="filter-group">
+            <h4>Sort by</h4>
+
+            <label class="radio-row">
+                <input type="radio" name="sort" checked>
+                <span>Relevance</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Fastest delivery</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Distance</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Top rated</span>
+            </label>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="filter-group">
+            <h4>Quick filters</h4>
+            <button class="pill-btn">Ratings 4+</button>
+            <!-- <button class="pill-btn">⭐ Super restaurant</button> -->
+        </div>
+
+        <!-- Offers -->
+        <div class="filter-group">
+            <h4>Offers</h4>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Free delivery</span>
+            </label>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Accepts vouchers</span>
+            </label>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Deals</span>
+            </label>
+        </div>
+
+        <!-- Cuisine -->
+        <div class="filter-group">
+    <h4>Cuisines</h4>
+    <input type="text" class="search-cuisine" placeholder="Search for cuisine">
+
+    <div class="cuisine-list">
+        <!-- Initial 6 items shown -->
+        <label class="check-row"><input type="checkbox"> <span>American</span></label>
+        <label class="check-row"><input type="checkbox"> <span>BBQ</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Beverages</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Biryani</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Broast</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Burgers</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Cakes & Bakery</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Chinese</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Continental</span></label>
+        
+        <!-- Hidden items (will show on click) -->
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Desserts</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Fast Food</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Haleem</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Halwa Puri</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Healthy Food</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Ice Cream</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Japanese</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Karahi & Handi</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Middle Eastern</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Nihari</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Pakistani</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Paratha</span></label>
+    </div>
+
+    <button class="show-more" id="showMoreCuisines">
+        Show more <i class="fas fa-chevron-down"></i>
+    </button>
 </div>
+
+        <!-- Price -->
+        <div class="filter-group">
+            <h4>Price</h4>
+            <div class="price-buttons">
+                <button class="price-pill">$</button>
+                <button class="price-pill">$$</button>
+                <button class="price-pill">$$$</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
 
 
                 <!-- Right Section: Promo Banner -->
@@ -498,7 +609,7 @@
 
 <!-- Top Restaurants Section -->
 <div class="top-restaurants">
-    <h3>Home Chef</h3>
+    <h3>All restaurants</h3>
 
     <div class="homechef-carousel">
 
@@ -603,19 +714,426 @@
             </div>
         </div>
 
-        <!-- You can duplicate cards safely now -->
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="homechef-card">
+            <div class="homechef-image">
+                <img src="assets/images/listing2.webp" alt="McDonald's">
+            </div>
+
+            <div class="homechef-content">
+                <h4>McDonald's</h4>
+
+                <div class="homechef-details">
+                    <span class="delivery-time">20-30 min</span>
+                    <span class="delivery-fee">Rs.49 delivery</span>
+                </div>
+
+                <div class="homechef-rating">
+                    <i class="fa-solid fa-star"></i><span>4.3</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<!-- Food Delivery in Islamabad Section -->
+<section class="food-delivery-section">
+    <div class="container">
+        <!-- Section 1 -->
+        <h2 class="section-title">Food delivery in Islamabad has never been easier</h2>
+        <div class="content-wrapper">
+            <p>Pakistan's capital and a pulsating, energetic and cosmopolitan city, Islamabad enjoys 
+                a multicultural and diverse food scene. Thanks to its rapid urbanisation, you can find 
+                numerous international chains as well as incredibly popular local and traditional 
+                establishments, offering nearly unlimited cuisine options when it comes to dining out.
+                What's even more exciting, food delivery in Islamabad is now made super-easy and convenient.
+                Reason? foodpanda serves across the length and breadth of this largest city of Pakistan, 
+                enabling easy delivery from restaurants in Islamabad.</p>
+        </div>
+        
+        <!-- Section 2 -->
+        <h2 class="section-title">Islamabad food delivery is just what modern fast-paced lifestyles need</h2>
+        <div class="content-wrapper">
+            <p>Aside from health reasons, savouring great food could be a wonderful stress-buster! 
+                Especially in a thriving metropolis like Islamabad, you would be leading a very busy 
+                lifestyle where food always takes a backseat. Late to the office? No time to prepare 
+                food for lunch? Lazy to get up on a Sunday morning? Well, these are just a few of the 
+                everyday scenarios where you are most likely going to skip your meals. With food delivery 
+                in Islamabad, you never have to forgo your food. With our online portal and mobile app, 
+                you can quickly choose from hundreds and hundreds of restaurants, cafes, and takeaways 
+                in your city and get satisfying, healthy and delicious food right at your doorstep!</p>
+        </div>
+        
+        <!-- Section 3 -->
+        <h2 class="section-title">What to order from Islamabad restaurants for delivery</h2>
+        <div class="content-wrapper">
+            <p>Perhaps, you are a die-hard fan of local delicacies prepared in a traditional way. 
+                Angeethi, Andaaz, Al-Nakheel Lebanese Cuisine, and Islamabad Grill are a few of the 
+                excellent places you can consider for authentic Pakistani food prepared just like at home. 
+                If lucky, you can even snap up our fantastic food deals in Islamabad to save some decent 
+                money while indulging to your heart's content. Maybe, you are gathering together with 
+                your friends to watch that most awaited cricket match of the year. Why not order some 
+                wonderful food, desserts and drinks to spice up the moment? Fish Fingers, Chicken Strips, 
+                and Chili Fries from Incantare Cafe & Grill, or Rajasthani Chicken Malai boti with drink 
+                and Masala Fish With Naan + Drink from Humpty Dumpty are some of the best-selling options 
+                worth a try using our prompt food delivery in Islamabad. From Subway sandwiches to Johnny 
+                Rockets burgers, from Sarang Sindhi Cuisine's Chicken Briyani to Big Bites' Chicken Combo, 
+                from Fruit Factory's smoothies to Chick Fillet pizzas, our impressive selection of 
+                restaurants come handy to suit every taste, mood, and occasion.</p>
+        </div>
+        
+        <!-- Section 4 -->
+        <h2 class="section-title">Famous restaurants for online food delivery in Islamabad</h2>
+        <div class="content-wrapper">
+            <p>Looking for the best pizza places in Islamabad? Want to treat your friends to the finest 
+                sandwiches in the city? Or simply love to experiment with your food choices or need late 
+                night food delivery in Islamabad? Well, take advantage of these most popular Islamabad 
+                food delivery options, favoured by thousands of discerning foodies and casual customers 
+                alike.</p>
+        </div>
+        
+        <!-- Section 5 -->
+        <h3 class="subheading">Top Restaurants of Islamabad include…</h3>
+        <div class="content-wrapper">
+            <ul>
+                <li><strong>14th Street Pizza:</strong> One of the best places for pizzas in Islamabad</li>
+                <li><strong>KFC:</strong> Classic and beloved fried chicken</li>
+                <li><strong>The New Yorker Pizza:</strong> Another favourite of the city's pizza lovers</li>
+                <li><strong>McDonald's:</strong> Needs no introduction and offers something for everyone</li>
+                <li><strong>Char Grill Centre (CGC):</strong> Comfort food that everyone adores!</li>
+            </ul>
+        </div>
+        
+        <!-- Section 6 -->
+        <h2 class="section-title">Presenting "no-cook Ramzan" only by foodpanda</h2>
+        <div class="content-wrapper">
+            <p>Feeling tired? Don't want to go out in this scorching hot weather? Here comes the solution 
+                to your problem. Now order food in Islamabad from your favourite restaurants through 
+                foodpanda and make your Ramzan flavorful with the bestest Sehri and Iftari deals with 
+                free delivery services. foodpanda fulfils your cravings by delivering food at your doorstep.</p>
+        </div>
+        
+        <!-- Section 7 -->
+        <h2 class="section-title">foodpanda bringing your favourite food to your doorstep!</h2>
+        <div class="content-wrapper">
+            <p>foodpanda provides you ease to order through online food delivery in Islamabad. Ordering 
+                food becomes easier because foodpanda provides you free delivery with minimum order of 
+                just Rs.200/-. Want to have delicious Sehri without going out? Just order through 
+                foodpanda anytime. Ramzan is all about food, fasting becomes delightful when scrumptious 
+                Iftari delivered within minutes.</p>
+        </div>
+        
+        <!-- Section 8 -->
+        <h3 class="subheading">Best Ramzan deals – for sehri and iftari available for delivery</h3>
+        <div class="content-wrapper">
+            <p>foodpanda giving major discounted deals to the people of Islamabad on Sehri and Iftari. 
+                So Islamabadis, don't waste your time and boost your cravings this Ramzan with foodpanda 
+                delivery services without any hassle.</p>
+            
+            <ul>
+                <li>KFC</li>
+                <li>McDonald's</li>
+                <li>Chaaye Khana</li>
+                <li>ChikaChino</li>
+                <li>Tuscany Courtyard</li>
+                <li>Street 1 cafe</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
 
 
 
                 </div>
             </div>
+
+            
         </div>
     </main>
 
  
-   
+ <!-- Add this footer section before closing </body> -->
+<div class="main-footer">
+    
+    <div class="footer-container">
+        
+        <div class="footer-grid">
+            <!-- Row 1 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#american" class="footer-link">AMERICAN FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">McDonald's, KFC, OPTP - Jinnah Super, Subway, Cinnabon - Centaurus, American Steak House</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#fastfood" class="footer-link">FAST FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Street 1 Cafe, Hardees, District 6, Juicy Gossip, Mr. COD - Banni Galla, Crunchies (Safa Gold)</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#pizza" class="footer-link">PIZZA DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Pizza Hut - Islamabad, New Yorker Pizza - Islamabad, 14th Street Pizza Co., Domino's Pizza, Tomatino Pizza Fiesta, Round House Pizza</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#chinese" class="footer-link">CHINESE DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Tiger Temple, Ha' pi', Kim Mun Chinese - Safa Gold Mall, Golden Dragon, Dragon City, Cock 'N' Bull</p>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#pakistani" class="footer-link">PAKISTANI FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Chattha's, Gulshan Roll Inn & Fried Chicken, Desi Bites, Erum's Kitchen, Cheema & Chattha Restaurant, Spicy Neandocs Murgh Pulao & Restaurant</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#burger" class="footer-link">BURGER DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Char Grill Central, Kins Crunchy Chicken, The Burger Company - Islamabad, 5 Star Pizza & Burger Hut, Burgers Etc., Burger Oye</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#dessert" class="footer-link">DESSERT DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Cupcake Factory, Sweet Tooth, Candy Land, Choco Heaven</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#seafood" class="footer-link">SEAFOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Ocean Grill, Fisherman's Wharf, SeaBites, Seafood Delight</p>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#vegan" class="footer-link">VEGAN FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Green Plate, Vegan Eats, Plant Power, Nature's Bowl</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#coffee" class="footer-link">COFFEE & BEVERAGES IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Coffee Planet, Gloria Jeans, Starbucks, Espresso Lab, Chai Shai</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#continental" class="footer-link">CONTINENTAL FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Noma, Tuscany Bistro, Olive Bistro, The Kitchen Lounge</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#fastcasual" class="footer-link">FAST CASUAL FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Tandoori Nights, Urban Tadka, Zaika-e-Pakistan, Wrap & Roll</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+    <div class="footer-bottom-left">
+        <!-- Logo Section -->
+                <a href="#" class="logo">
+                    <svg
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="28"
+            height="28"
+            className="logo-icon"
+          >
+            <path
+              d="M35 0H5C2.24 0 0 2.24 0 5v30c0 2.76 2.24 5 5 5h30c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5Z"
+              fill="#ff2b85"
+            />
+            <path
+              d="M14.58 17.53c.41-.04.71-.4.68-.81a.756.756 0 0 0-.81-.68c-.39.03-.68.35-.68.74.02.43.38.76.81.75Zm10.44-1.33c.12-.09.25-.14.4-.16.43-.02.79.32.81.75 0 .41-.33.75-.75.75s-.75-.33-.75-.75c0-.23.11-.45.29-.59Z"
+              fill="#fff"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M33.51 14.52v-.03c-.15-.3-.1-.65.12-.9a4.983 4.983 0 0 0 .89-4.78c-.06-.19-.34-.24-.61-.29-.26-.05-.52-.09-.62-.26-.09-.15-.06-.38 0-.63.02-.07.03-.13.04-.2.05-.26.07-.51-.06-.64s-.28-.26-.42-.37l-.09-.07c-1-.74-2.23-1.1-3.47-1.03-1.08.05-2.23.41-3.06 1.14-.4.29-.92.37-1.39.22l-.07-.02c-.84-.3-1.7-.52-2.58-.66a14.28 14.28 0 0 0-6.95.66h-.05c-.45.18-.96.1-1.35-.19-1.55-1.37-4.68-1.71-6.72.01-2.23 1.88-2.36 5.17-.71 7.1.22.25.26.6.12.9-.98 2-1.5 4.2-1.51 6.43 0 7.97 6.72 13.77 15 13.77 8.28 0 15-5.8 15-13.77 0-2.22-.52-4.41-1.49-6.41 0 0 0 .02-.01.02h-.01ZM19.9 20.19c1.19 0 2.15.26 2.15.72 0 .46-.96 1.5-2.15 1.5s-2.15-1.04-2.15-1.5c0-.46.96-.72 2.15-.72ZM7.86 11.8a.578.578 0 0 1-.18-.2c-.02-.03-.04-.07-.06-.1-.36-.66-.45-1.44-.23-2.16.42-1.41 1.92-2.24 3.35-2.05.37.05.74.17 1.07.35.14.08.26.17.37.28.04.04.08.09.1.15.02.09 0 .18-.07.25-.06.06-.14.11-.22.15-1.37.8-2.49 1.95-3.52 3.14-.17.19-.35.37-.61.19Zm3.66 11.33c-1.24-.14-2.32-1.45-2.73-2.77-.18-.58-.61-3.26 1.31-5.2.64-.64 1.54-1.21 2.79-1.59.41-.1.82-.15 1.24-.15.62 0 1.36.1 1.95.53 1.24.91 1.26 2.44.52 3.23s-2.4 2.59-2.83 4.06c-.42 1.47-1.01 2.04-2.26 1.9 0 0 .01-.01.01 0v-.01Zm8.4 4.43h-.04c-2.39-.01-4.32-1.7-4.32-3.4 0-.59.26-.89.89-.73.37.09 1.89.48 3.27.48h.35c1.35 0 2.82-.37 3.24-.48h.03c.64-.16.89.14.89.72 0 1.7-1.93 3.39-4.32 3.4h.01v.01Zm11.09-7.22c-.41 1.32-1.49 2.63-2.73 2.77-1.24.14-1.83-.42-2.26-1.9-.43-1.47-2.09-3.28-2.83-4.07-.74-.78-.72-2.32.52-3.23.58-.43 1.33-.53 1.95-.53.42 0 .83.05 1.24.15 1.25.38 2.15.94 2.79 1.58 1.92 1.94 1.49 4.62 1.31 5.2 0 0 .01.03 0 .03h.01Zm1.37-8.84-.06.1a.86.86 0 0 1-.18.2c-.26.18-.44 0-.61-.19-1.03-1.19-2.15-2.34-3.52-3.14a1.07 1.07 0 0 1-.22-.15.33.33 0 0 1-.08-.25c.02-.06.05-.11.1-.15.11-.11.23-.21.37-.28.33-.18.7-.3 1.07-.35 1.43-.19 2.93.64 3.35 2.05.21.72.13 1.5-.23 2.16h.01Z"
+              fill="#fff"
+            />
+          </svg>
+                    <span>foodpanda</span>
+                </a>
+    </div>
+   <div class="footer-bottom-right">
+        <a href="https://facebook.com" target="_blank" class="footer-icon">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="footer-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+</div>
+
+    </div>
+</div>
+
+ 
 
     <!-- Link to our JavaScript file -->
     <script src="script.js"></script>
