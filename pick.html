@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodpanda Clone</title>
+    
+    <!-- Google Fonts for a similar font feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to our CSS file -->
+    <style> 
+
+:root {
+    --primary-pink: #ff2b85;
+    --dark-gray: #333333;
+    --light-gray: #f8f8f8;
+    --white: #ffffff;
+    --border-color: #f0f0f0;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+
+    position: relative;
+    min-height: 100vh;
+
+}
+
+/* Container */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+   padding: 0 30px;   /* top-bottom 0, left-right 20px */
+margin-right: 40px; /* sirf left badha diya */    
+}
+
+/* Header */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-pink);
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.logo span {
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.address-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    background-color: var(--light-gray);
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.address-bar i {
+    margin-right: 12px;
+    color: var(--primary-pink);
+}
+
+.address-bar input {
+    border: none;
+    background: none;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Header Buttons as Links */
+.btn-login, .btn-signup {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from <a> */
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* Login Button */
+.btn-login {
+    background: transparent;
+    color: var(--primary-pink);
+    border: 2px solid var(--primary-pink);
+    margin-left: 40px;
+}
+
+.btn-login:hover {
+    background: rgba(255,43,133,0.1);
+}
+
+/* Signup Button */
+.btn-signup {
+    background: var(--primary-pink);
+    color: #fff;
+    border: 2px solid var(--primary-pink);
+}
+
+.btn-signup:hover {
+    background: #e02475;
+}
+
+.lang-selector {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lang-selector:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.cart-icon {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-icon:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    overflow-x: auto;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-item {
+    padding: 20px 20px;
+    position: relative;
+}
+
+.nav-item a {
+    display: inline-block; /* so ::after works */
+    position: relative;    /* optional, safer */
+    color: rgb(150, 145, 145);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-item.active a::after,
+.nav-item a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;   /* distance from text */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+}
+
+.nav-item.active a {
+    color: #000;
+    font-weight: 700;
+}
+
+
+
+/* ===== MOBILE HEADER (res.png style) ===== */
+.mobile-header {
+    display: none;
+    background-color: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Top Row: Icons + Logo */
+.mobile-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-left-icon,
+.mobile-right-icon {
+    flex: 0 0 40px;
+}
+
+.mobile-center-logo {
+    flex: 1;
+    text-align: center;
+}
+
+.mobile-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--primary-pink);
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-icon-link:hover {
+    background-color: rgba(255, 43, 133, 0.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--primary-pink);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-logo {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-pink);
+}
+
+/* Address Row */
+.mobile-address-row {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.address-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.address-display i {
+    color: var(--primary-pink);
+}
+
+/* ===== MOBILE MENU TABS - HORIZONTAL SCROLLABLE ===== */
+.mobile-menu-tabs {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--white);
+    overflow-x: auto; /* Horizontal scroll enable */
+    white-space: nowrap; /* Prevent line breaks */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.mobile-menu-tabs::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.tabs-container {
+    display: inline-flex; /* Inline flex for horizontal layout */
+    gap: 10px;
+    min-width: 100%; /* Ensure container takes full width */
+    padding-bottom: 5px; /* Space for scroll hint */
+}
+
+.tab-item {
+    display: inline-flex; /* Inline flex for horizontal items */
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 25px; /* Pill shape */
+    transition: all 0.3s ease;
+    min-width: max-content; /* Don't shrink text */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Icon styling - LEFT SIDE */
+.tab-item i {
+    font-size: 16px;
+    width: 20px; /* Fixed width for alignment */
+    text-align: center;
+    color: var(--dark-gray);
+    transition: color 0.3s ease;
+}
+
+/* Active state */
+.tab-item.active {
+    color: var(--primary-pink);
+    background-color: rgba(255, 43, 133, 0.1);
+    border-color: var(--primary-pink);
+    font-weight: 600;
+}
+
+/* Underline for active */
+.tab-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #000;
+    border-radius: 10px;
+}
+
+.tab-item.active i {
+    color: var(--primary-pink);
+}
+
+/* Hover state */
+.tab-item:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-pink);
+}
+
+.tab-item:hover:not(.active) i {
+    color: var(--primary-pink);
+}
+
+/* Scroll hint indicator */
+.tabs-container::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+/* Hide desktop header on mobile */
+@media (max-width: 768px) {
+    .main-header {
+        display: none;
+    }
+    
+    .mobile-header {
+        display: block;
+    }
+}
+
+/* Show desktop header on larger screens */
+@media (min-width: 769px) {
+    .main-header {
+        display: block;
+    }
+    
+    .mobile-header {
+        display: none;
+    }
+}
+
+/* Tablet adjustments (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .mobile-menu-tabs {
+        padding: 15px 20px;
+    }
+    
+    .tab-item {
+        padding: 12px 18px;
+        font-size: 15px;
+        gap: 10px;
+    }
+    
+    .tab-item i {
+        font-size: 18px;
+        width: 22px;
+    }
+}
+
+/* Mobile adjustments (480px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+    .mobile-menu-tabs {
+        padding: 12px 15px;
+    }
+    
+    .tab-item {
+        padding: 10px 15px;
+        font-size: 14px;
+        gap: 8px;
+    }
+    
+    .tab-item i {
+        font-size: 16px;
+        width: 20px;
+    }
+}
+
+/* Small mobile adjustments (480px and below) */
+@media (max-width: 480px) {
+    .mobile-top-row {
+        padding: 10px 12px;
+    }
+    
+    .mobile-logo {
+        font-size: 18px;
+    }
+    
+    .mobile-icon-link {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+    
+    .address-display {
+        font-size: 13px;
+    }
+    
+    /* Menu Tabs for small mobile */
+    .mobile-menu-tabs {
+        padding: 10px 12px;
+    }
+    
+    .tabs-container {
+        gap: 8px;
+    }
+    
+    .tab-item {
+        padding: 8px 12px;
+        font-size: 13px;
+        gap: 6px;
+        border-radius: 20px;
+    }
+    
+    .tab-item i {
+        font-size: 15px;
+        width: 18px;
+    }
+}
+
+/* Very small screens (360px and below) */
+@media (max-width: 360px) {
+    .mobile-menu-tabs {
+        padding: 8px 10px;
+    }
+    
+    .tabs-container {
+        gap: 6px;
+    }
+    
+    .tab-item {
+        padding: 7px 10px;
+        font-size: 12px;
+        gap: 5px;
+        border-radius: 18px;
+    }
+    
+    .tab-item i {
+        font-size: 14px;
+        width: 16px;
+    }
+}
+
+/* Content Area */
+.content-area {
+    padding: 40px 0;
+}
+
+/* Main Wrapper: QR Left 30% + Promo Right 70% */
+.main-content-wrapper {
+    padding-left: 25%;
+    position: relative;
+    /* NEW: Add min-height to ensure content pushes footer down */
+    min-height: calc(100vh - 200px);
+}
+
+.left-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f8f8;
+    padding: 20px;
+    z-index: 998;
+    margin-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    gap: 5px;
+    /* NEW: Add overflow-x to prevent horizontal issues */
+    overflow-x: hidden;
+}
+
+/* ----------------------------------
+   Filters
+---------------------------------- */
+/* MOBILE FILTER BUTTON */
+.mobile-filter-toggle {
+     width: calc(100% + 20px);
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: none; /* desktop par hide */
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #333;
+    margin-bottom: 0;
+    margin-top: -20px;
+    
+}
+
+/* left side icon + text */
+.mobile-filter-toggle .left-part {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Close icon always visible */
+.mobile-filter-toggle .close-icon {
+    font-size: 18px;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+    .mobile-filter-toggle {
+        display: flex;
+    }
+    .filters-box {
+        display: none;
+    }
+}
+
+
+.filters-box {
+    margin-top: -20px;
+    padding: 15px;
+    padding-left: 30px;
+    background: #fff;
+    border-radius: 12px;
+    width: 260px;     /* jitni choti chaho kar sakti ho */
+    margin: 0 auto;   /* center me rakhta hai */
+    max-height: 900px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    margin-left: -20px;
+    line-height: 1.7;
+}
+
+.filter-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Radio + Checkbox Row */
+.radio-row, .check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.radio-row input,
+.check-row input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Quick filter buttons */
+.pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+        /* ===== RIGHT SECTION STYLES ===== */
+
+.right-section {
+    width: 105%;
+    padding-left: 10px;
+    min-height: calc(100vh - 200px);
+    margin-left: -50px;
+}
+
+/* Right Search Bar */
+.right-search-bar {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.right-search-bar i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px;
+}
+
+.right-search-bar input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.right-search-bar input:focus {
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 0 3px rgba(255, 43, 133, 0.1);
+}
+
+/* Explore Section */
+/* Explore Section */
+.explore-section {
+    position: relative;
+    width: 100%;
+    height: 160px; /* adjust height */
+    background-image: url('https://micro-assets.foodora.com/img/img-map-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center; /* vertical center */
+    padding-left: 40px;  /* distance from left */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Overlay to make text readable */
+.explore-section .overlay {
+    position: absolute;
+    inset: 0; /* top:0; left:0; bottom:0; right:0 */
+    z-index: 1;
+}
+
+/* Content over image */
+.explore-content {
+    position: relative;
+    z-index: 2; /* on top of overlay */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between heading and button */
+    color: white;
+}
+
+/* Heading */
+.explore-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+}
+
+/* Button */
+/* Explore Section Button */
+.show-map-btn {
+    padding: 6px 12px;                /* smaller vertical and horizontal padding */
+    background-color: transparent;     /* transparent background initially */
+    border: 2px solid #ff4081;        /* pink border */
+    color: #ff4081;                    /* pink text */
+    border-radius: 8px;                /* rounded corners */
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;              /* shrink to content */
+    align-items: center;               /* vertically center text */
+    justify-content: center;           /* horizontally center text */
+    transition: all 0.3s ease;
+    min-width: 0;                      /* remove any inherited minimum width */
+}
+
+/* Hover effect */
+.show-map-btn:hover {
+    background-color: #ff4081; /* fill background on hover */
+    color: white;              /* text turns white */
+}
+
+
+
+
+/* Daily Deals Section */
+.small-image-section {
+    margin-top: 40px;
+}
+
+.small-image-section h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-top: 16px;
+}
+
+.small-image-boxes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.small-image-box {
+    flex: 1 1 30%;
+    background: #f5f5f5;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 10px;
+}
+
+.small-image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===============================
+   RESTAURANT LISTINGS
+================================ */
+.restaurant-listings h3 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    padding-top: 40px;
+}
+
+
+/* ===============================
+   CAROUSEL WRAPPER
+================================ */
+.restaurant-carousel-wrapper {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;      /* Full width */
+    padding: 0 15px;  /* Optional horizontal padding */
+    box-sizing: border-box;
+}
+
+
+
+/* ===============================
+   CAROUSEL ROW
+================================ */
+.restaurant-carousel {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    margin-right: 0;   /* Extra right space remove */
+}
+
+
+
+/* ===============================
+   ARROWS
+================================ */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+.carousel-arrow.left {
+    left: -20px;
+}
+
+.carousel-arrow.right {
+    right: -20px;
+}
+
+
+/* ===============================
+   RESTAURANT CARD
+================================ */
+.restaurant-card {
+    flex: 0 0 calc(33.333% - 17px);   /* 🔥 3 cards per row */
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.carousel-arrow.left { left: 5px; }
+.carousel-arrow.right { right: 5px; }
+
+/* Scrollbar hide (all browsers) */
+.restaurant-carousel::-webkit-scrollbar {
+    display: none;
+}
+.restaurant-carousel {
+    -ms-overflow-style: none;  /* IE & Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover .card-image-container img {
+    transform: scale(1.05);
+}
+
+
+/* ===============================
+   PROMO TAGS
+================================ */
+.promo-tag {
+    position: absolute;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 2;
+}
+
+.tag-1 {
+    top: 10px;
+    background: #ff2b85;
+}
+
+.tag-2 {
+    top: 42px;
+    background: #333;
+}
+
+
+/* ===============================
+   CARD CONTENT
+================================ */
+.card-content {
+    padding: 15px;
+}
+
+
+/* ===============================
+   TITLE + RATING
+================================ */
+.card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-title-row h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+    max-width: 70%;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.card-rating i {
+    color: #ff9800;
+}
+
+.card-rating span {
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* ===============================
+   DELIVERY DETAILS
+================================ */
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+/* ===============================
+   EXTRA INFO
+================================ */
+.card-additional-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.price {
+    font-weight: 700;
+    color: #333;
+}
+
+
+/* Footer Styles */
+/* ===== FOOD DELIVERY FOOTER STYLES ===== */
+.main-footer {
+    background-color: #f8f8f8;
+    color: #000;
+    padding: 50px 30px 30px;
+    border-top: 1px solid #000;
+    width: 100%;
+    margin-top: 50px;
+    clear: both;
+    position: relative;
+    z-index: 9999; /* Higher z-index than left section */
+    /* NEW: Ensure footer stays at bottom */
+    margin-left: 0;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* NEW: Ensure container is not affected by left section */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .footer-title {
+    text-align: center;
+    color: #ff9a3c;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 154, 60, 0.3);
+    font-weight: 700;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} */
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+
+/* .footer-section .section-heading {
+    color: #ff9a3c;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 154, 60, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* .footer-section .section-heading:hover {
+    color: #ff6b35;
+    border-bottom-color: #ff6b35;
+} */
+
+.footer-section .section-heading i {
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.footer-section .section-heading:hover i {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-section .section-content {
+    color: #000;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #000;
+    margin-left: 10px;   /* space from left */
+    margin-right: 10px;  /* space from right */
+}
+
+.footer-logo {
+    height: 40px; /* adjust as needed */
+}
+
+.footer-bottom-right {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #fff; /* circle background */
+    border: 1px solid #000;
+    color: #000; /* icon color */
+    border-radius: 50%; /* make it circular */
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1); /* only circle zooms */
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+    .restaurant-card {
+        flex: 0 0 calc(50% - 13px);   /* 2 cards */
+    }
+
+    .carousel-arrow.left {
+        left: -10px;
+    }
+
+    .carousel-arrow.right {
+        right: -10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .restaurant-card {
+        flex: 0 0 100%;   /* 1 card */
+    }
+
+    .carousel-arrow {
+        display: none;   /* mobile swipe only */
+    }
+}
+
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 1200px) {
+    .right-section {
+        width: 65%;
+        padding-left: 20px;
+        margin-left: 30%;
+    }
+    
+    .deals-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .right-section {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    
+    .left-section {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+    }
+    
+    .main-content-wrapper {
+        padding-left: 0;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .explore-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .show-map-btn {
+        align-self: flex-start;
+    }
+    
+    .deals-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .right-search-bar input {
+        font-size: 14px;
+        padding: 12px 15px 12px 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .right-section {
+        padding: 0 10px;
+    }
+    
+    .explore-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .daily-deals-section h3,
+    .restaurant-listings h3 {
+        font-size: 1.2rem;
+    }
+    
+    .card-content h4 {
+        font-size: 1.1rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-top">
+                <!-- Logo Section -->
+                <a href="#" class="logo">
+                    <svg
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="28"
+            height="28"
+            className="logo-icon"
+          >
+            <path
+              d="M35 0H5C2.24 0 0 2.24 0 5v30c0 2.76 2.24 5 5 5h30c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5Z"
+              fill="#ff2b85"
+            />
+            <path
+              d="M14.58 17.53c.41-.04.71-.4.68-.81a.756.756 0 0 0-.81-.68c-.39.03-.68.35-.68.74.02.43.38.76.81.75Zm10.44-1.33c.12-.09.25-.14.4-.16.43-.02.79.32.81.75 0 .41-.33.75-.75.75s-.75-.33-.75-.75c0-.23.11-.45.29-.59Z"
+              fill="#fff"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M33.51 14.52v-.03c-.15-.3-.1-.65.12-.9a4.983 4.983 0 0 0 .89-4.78c-.06-.19-.34-.24-.61-.29-.26-.05-.52-.09-.62-.26-.09-.15-.06-.38 0-.63.02-.07.03-.13.04-.2.05-.26.07-.51-.06-.64s-.28-.26-.42-.37l-.09-.07c-1-.74-2.23-1.1-3.47-1.03-1.08.05-2.23.41-3.06 1.14-.4.29-.92.37-1.39.22l-.07-.02c-.84-.3-1.7-.52-2.58-.66a14.28 14.28 0 0 0-6.95.66h-.05c-.45.18-.96.1-1.35-.19-1.55-1.37-4.68-1.71-6.72.01-2.23 1.88-2.36 5.17-.71 7.1.22.25.26.6.12.9-.98 2-1.5 4.2-1.51 6.43 0 7.97 6.72 13.77 15 13.77 8.28 0 15-5.8 15-13.77 0-2.22-.52-4.41-1.49-6.41 0 0 0 .02-.01.02h-.01ZM19.9 20.19c1.19 0 2.15.26 2.15.72 0 .46-.96 1.5-2.15 1.5s-2.15-1.04-2.15-1.5c0-.46.96-.72 2.15-.72ZM7.86 11.8a.578.578 0 0 1-.18-.2c-.02-.03-.04-.07-.06-.1-.36-.66-.45-1.44-.23-2.16.42-1.41 1.92-2.24 3.35-2.05.37.05.74.17 1.07.35.14.08.26.17.37.28.04.04.08.09.1.15.02.09 0 .18-.07.25-.06.06-.14.11-.22.15-1.37.8-2.49 1.95-3.52 3.14-.17.19-.35.37-.61.19Zm3.66 11.33c-1.24-.14-2.32-1.45-2.73-2.77-.18-.58-.61-3.26 1.31-5.2.64-.64 1.54-1.21 2.79-1.59.41-.1.82-.15 1.24-.15.62 0 1.36.1 1.95.53 1.24.91 1.26 2.44.52 3.23s-2.4 2.59-2.83 4.06c-.42 1.47-1.01 2.04-2.26 1.9 0 0 .01-.01.01 0v-.01Zm8.4 4.43h-.04c-2.39-.01-4.32-1.7-4.32-3.4 0-.59.26-.89.89-.73.37.09 1.89.48 3.27.48h.35c1.35 0 2.82-.37 3.24-.48h.03c.64-.16.89.14.89.72 0 1.7-1.93 3.39-4.32 3.4h.01v.01Zm11.09-7.22c-.41 1.32-1.49 2.63-2.73 2.77-1.24.14-1.83-.42-2.26-1.9-.43-1.47-2.09-3.28-2.83-4.07-.74-.78-.72-2.32.52-3.23.58-.43 1.33-.53 1.95-.53.42 0 .83.05 1.24.15 1.25.38 2.15.94 2.79 1.58 1.92 1.94 1.49 4.62 1.31 5.2 0 0 .01.03 0 .03h.01Zm1.37-8.84-.06.1a.86.86 0 0 1-.18.2c-.26.18-.44 0-.61-.19-1.03-1.19-2.15-2.34-3.52-3.14a1.07 1.07 0 0 1-.22-.15.33.33 0 0 1-.08-.25c.02-.06.05-.11.1-.15.11-.11.23-.21.37-.28.33-.18.7-.3 1.07-.35 1.43-.19 2.93.64 3.35 2.05.21.72.13 1.5-.23 2.16h.01Z"
+              fill="#fff"
+            />
+          </svg>
+                    <span>foodpanda</span>
+                </a>
+
+                <!-- Address Bar Section -->
+                <div class="address-bar">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" value="New address Service Road W Islamabad" readonly>
+                </div>
+
+                <!-- Action Buttons Section -->
+                <div class="header-actions">
+                    <a href="signin.html" class="btn btn-login">Log in</a>
+<a href="signin.html" class="btn btn-signup">Sign up for free delivery</a>
+
+                    <div class="lang-selector">
+                        EN <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <nav class="main-nav">
+                <ul>
+                    <!-- Added data-tab and icon <i> tag -->
+                    <li class="nav-item active" data-tab="delivery">
+                        <a href="index.html"><i class="fa-solid fa-motorcycle"></i> Delivery</a>
+                    </li>
+                    <li class="nav-item" data-tab="pickup">
+                        <a href="#"><i class="fa-solid fa-person-walking"></i> Pick-up</a>
+                    </li>
+                    <li class="nav-item" data-tab="pandamart">
+                        <a href="#"><i class="fa-solid fa-basket-shopping"></i> pandamart</a>
+                    </li>
+                    <li class="nav-item" data-tab="shops">
+                        <a href="#"><i class="fa-solid fa-bag-shopping"></i> Shops</a>
+                    </li>
+                    <li class="nav-item" data-tab="caterers">
+                        <a href="#"><i class="fa-solid fa-utensils"></i> Caterers</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Header (res.png style) - Add this AFTER your existing header -->
+<div class="mobile-header">
+    <!-- Top Row: Icons + Logo -->
+    <div class="mobile-top-row">
+        <!-- Left Icon (Sign In) -->
+        <div class="mobile-left-icon">
+            <a href="signin.html" class="mobile-icon-link">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+        
+        <!-- Center Logo -->
+        <div class="mobile-center-logo">
+            <a href="#" class="mobile-logo">
+                <span class="logo-text">foodpanda</span>
+            </a>
+        </div>
+        
+        <!-- Right Icon (Cart) -->
+        <div class="mobile-right-icon">
+            <a href="#" class="mobile-icon-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Address Row -->
+    <div class="mobile-address-row">
+        <div class="address-display">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Service Road W Islamabad</span>
+        </div>
+    </div>
+    
+    <!-- Menu Tabs Row -->
+    <div class="mobile-menu-tabs">
+    <div class="tabs-container">
+        <button class="tab-item active" data-tab="delivery">
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Delivery</span>
+        </button>
+        <button class="tab-item" data-tab="pickup">
+            <i class="fa-solid fa-person-walking"></i>
+            <span>Pick-up</span>
+        </button>
+        <button class="tab-item" data-tab="pandamart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span>pandamart</span>
+        </button>
+        <button class="tab-item" data-tab="shops">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Shops</span>
+        </button>
+        <button class="tab-item" data-tab="caterers">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Caterers</span>
+        </button>
+    </div>
+</div>
+</div>
+
+
+
+
+    <!-- Main Content Area (for tab switching demo) -->
+    <main class="content-area">
+ 
+        <div class="container">
+            <!-- Left QR + Right Promo Section -->
+            <div class="main-content-wrapper">
+               <div class="left-section" id="leftSection">
+
+    <!-- QR BOX -->
+    <!-- <div class="qr-box" style="position: relative;">
+        <button id="closeQr" style="position:absolute; top:10px; right:10px; background:none; border:none; color:#fff; font-size:24px; cursor:pointer;">&times;</button>
+
+        <h2>Unlock more app-only deals</h2>
+        <p>Download now</p>
+
+        <div class="qr-code">
+            <img src="assets/images/download QR.png" alt="QR Code">
+        </div>
+
+        <div class="app-store-buttons">
+            <a href="#" class="store-btn">
+                <span>App Store</span>
+                <i class="fa-brands fa-apple"></i>
+            </a>
+            <a href="#" class="store-btn">
+                <span>Play Store</span>
+                <i class="fa-brands fa-google-play"></i>
+            </a>
+        </div>
+    </div> -->
+
+    <!-- FILTERS BOX OUTSIDE QR BOX -->
+ <!-- MOBILE FILTER BUTTON -->
+<button class="mobile-filter-toggle" id="mobileFilterBtn">
+    <span class="left-part">
+        <i class="fas fa-sliders-h"></i> Filters
+    </span>
+    <i class="fas fa-times close-icon"></i>
+</button>
+
+    <div class="filters-box">
+        <h3 class="filter-title">Filters</h3>
+
+        <!-- Sort By -->
+        <div class="filter-group">
+            <h4>Sort by</h4>
+
+            <label class="radio-row">
+                <input type="radio" name="sort" checked>
+                <span>Relevance</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Fastest delivery</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Distance</span>
+            </label>
+
+            <label class="radio-row">
+                <input type="radio" name="sort">
+                <span>Top rated</span>
+            </label>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="filter-group">
+            <h4>Quick filters</h4>
+            <button class="pill-btn">Ratings 4+</button>
+            <!-- <button class="pill-btn">⭐ Super restaurant</button> -->
+        </div>
+
+        <!-- Offers -->
+        <div class="filter-group">
+            <h4>Offers</h4>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Free delivery</span>
+            </label>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Accepts vouchers</span>
+            </label>
+
+            <label class="check-row">
+                <input type="checkbox">
+                <span>Deals</span>
+            </label>
+        </div>
+
+        <!-- Cuisine -->
+        <div class="filter-group">
+    <h4>Cuisines</h4>
+    <input type="text" class="search-cuisine" placeholder="Search for cuisine">
+
+    <div class="cuisine-list">
+        <!-- Initial 6 items shown -->
+        <label class="check-row"><input type="checkbox"> <span>American</span></label>
+        <label class="check-row"><input type="checkbox"> <span>BBQ</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Beverages</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Biryani</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Broast</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Burgers</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Cakes & Bakery</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Chinese</span></label>
+        <label class="check-row"><input type="checkbox"> <span>Continental</span></label>
+        
+        <!-- Hidden items (will show on click) -->
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Desserts</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Fast Food</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Haleem</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Halwa Puri</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Healthy Food</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Ice Cream</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Japanese</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Karahi & Handi</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Middle Eastern</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Nihari</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Pakistani</span></label>
+        <label class="check-row hidden-item"><input type="checkbox"> <span>Paratha</span></label>
+    </div>
+
+    <button class="show-more" id="showMoreCuisines">
+        Show more <i class="fas fa-chevron-down"></i>
+    </button>
+</div>
+
+        <!-- Price -->
+        <div class="filter-group">
+            <h4>Price</h4>
+            <div class="price-buttons">
+                <button class="price-pill">$</button>
+                <button class="price-pill">$$</button>
+                <button class="price-pill">$$$</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+                <!-- Right Section: Promo Banner -->
+                <!-- Right Section -->
+<div class="right-section">
+    <!-- Search Bar -->
+    <div class="right-search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search for restaurants, cuisines, and dishes">
+    </div>
+
+ 
+    <!-- Explore Section -->
+<div class="explore-section">
+    <div class="overlay"></div>
+    <div class="explore-content">
+        <h2>Explore restaurants around you</h2>
+        <button class="show-map-btn">
+            Show map →
+        </button>
+    </div>
+</div>
+
+
+
+    <!-- Daily Deals -->
+    <div class="small-image-section">
+    <h3>Yours daily deals</h3>
+
+    <div class="small-image-boxes">
+        <div class="small-image-box">
+            <img src="assets/images/desktop_size.png" alt="Brand 1">
+        </div>
+        <div class="small-image-box">
+            <img src="assets/images/desktop_size2.png" alt="Brand 2">
+        </div>
+        <!-- <div class="small-image-box">
+            <img src="assets/images/desktop1.png" alt="Brand 3">
+        </div> -->
+    </div>
+</div>
+
+    <!-- Restaurant Listings -->
+    <!-- Restaurant Listings -->
+<div class="restaurant-listings">
+    <h3>Nearby Restaurants</h3>
+
+    <div class="restaurant-carousel-wrapper">
+
+        <!-- LEFT ARROW -->
+        <button class="carousel-arrow left" onclick="scrollCarousel(-1)">
+            &#10094;
+        </button>
+
+        <!-- CAROUSEL -->
+        <div class="restaurant-carousel" id="restaurantCarousel">
+
+            <!-- Card 1 -->
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/u1j8-listing.webp" alt="Restaurant">
+                    <div class="promo-tag tag-1">30% OFF</div>
+                    <div class="promo-tag tag-2">PROMO</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h4>KFC - Blue Area</h4>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.2 (55)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <span class="delivery-time">15-25 min</span>
+                        <span class="delivery-fee">$2.49 Delivery</span>
+                    </div>
+
+                    <div class="card-additional-info">
+                        <span class="cuisine-type">Fast Food • American</span>
+                        <span class="price">$$</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="assets/images/tp5n-listing.webp" alt="Restaurant">
+                    <div class="promo-tag tag-1">25% OFF</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h4>Pizza Hut</h4>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.5 (2.3k)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <span class="delivery-time">20-30 min</span>
+                        <span class="delivery-fee">$1.99 Delivery</span>
+                    </div>
+
+                    <div class="card-additional-info">
+                        <span class="cuisine-type">Pizza • Italian</span>
+                        <span class="price">$$</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="https://via.placeholder.com/300x150" alt="Restaurant">
+                    <div class="promo-tag tag-1">40% OFF</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h4>Burger King</h4>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.3 (1.8k)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <span class="delivery-time">10-20 min</span>
+                        <span class="delivery-fee">Free Delivery</span>
+                    </div>
+
+                    <div class="card-additional-info">
+                        <span class="cuisine-type">Burgers • Fast Food</span>
+                        <span class="price">$</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="restaurant-card">
+                <div class="card-image-container">
+                    <img src="https://via.placeholder.com/300x150" alt="Restaurant">
+                    <div class="promo-tag tag-1">20% OFF</div>
+                    <div class="promo-tag tag-2">TOP</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h4>McDonald's</h4>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.1 (3.5k)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <span class="delivery-time">15-25 min</span>
+                        <span class="delivery-fee">$2.99 Delivery</span>
+                    </div>
+
+                    <div class="card-additional-info">
+                        <span class="cuisine-type">Fast Food • American</span>
+                        <span class="price">$$</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <button class="carousel-arrow right" onclick="scrollCarousel(1)">
+            &#10095;
+        </button>
+
+    </div>
+</div>
+
+</div>
+
+
+            </div>
+
+            
+        </div>
+    </main>
+
+ 
+ <!-- Add this footer section before closing </body> -->
+<div class="main-footer">
+    
+    <div class="footer-container">
+        
+        <div class="footer-grid">
+            <!-- Row 1 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#american" class="footer-link">AMERICAN FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">McDonald's, KFC, OPTP - Jinnah Super, Subway, Cinnabon - Centaurus, American Steak House</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#fastfood" class="footer-link">FAST FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Street 1 Cafe, Hardees, District 6, Juicy Gossip, Mr. COD - Banni Galla, Crunchies (Safa Gold)</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#pizza" class="footer-link">PIZZA DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Pizza Hut - Islamabad, New Yorker Pizza - Islamabad, 14th Street Pizza Co., Domino's Pizza, Tomatino Pizza Fiesta, Round House Pizza</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#chinese" class="footer-link">CHINESE DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Tiger Temple, Ha' pi', Kim Mun Chinese - Safa Gold Mall, Golden Dragon, Dragon City, Cock 'N' Bull</p>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#pakistani" class="footer-link">PAKISTANI FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Chattha's, Gulshan Roll Inn & Fried Chicken, Desi Bites, Erum's Kitchen, Cheema & Chattha Restaurant, Spicy Neandocs Murgh Pulao & Restaurant</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#burger" class="footer-link">BURGER DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Char Grill Central, Kins Crunchy Chicken, The Burger Company - Islamabad, 5 Star Pizza & Burger Hut, Burgers Etc., Burger Oye</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#dessert" class="footer-link">DESSERT DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Cupcake Factory, Sweet Tooth, Candy Land, Choco Heaven</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#seafood" class="footer-link">SEAFOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Ocean Grill, Fisherman's Wharf, SeaBites, Seafood Delight</p>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#vegan" class="footer-link">VEGAN FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Green Plate, Vegan Eats, Plant Power, Nature's Bowl</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#coffee" class="footer-link">COFFEE & BEVERAGES IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Coffee Planet, Gloria Jeans, Starbucks, Espresso Lab, Chai Shai</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#continental" class="footer-link">CONTINENTAL FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Noma, Tuscany Bistro, Olive Bistro, The Kitchen Lounge</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="section-heading">
+                    <a href="#fastcasual" class="footer-link">FAST CASUAL FOOD DELIVERY IN ISLAMABAD <i class="arrow">&gt;</i></a>
+                </h3>
+                <p class="section-content">Tandoori Nights, Urban Tadka, Zaika-e-Pakistan, Wrap & Roll</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+    <div class="footer-bottom-left">
+        <!-- Logo Section -->
+                <a href="#" class="logo">
+                    <svg
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="28"
+            height="28"
+            className="logo-icon"
+          >
+            <path
+              d="M35 0H5C2.24 0 0 2.24 0 5v30c0 2.76 2.24 5 5 5h30c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5Z"
+              fill="#ff2b85"
+            />
+            <path
+              d="M14.58 17.53c.41-.04.71-.4.68-.81a.756.756 0 0 0-.81-.68c-.39.03-.68.35-.68.74.02.43.38.76.81.75Zm10.44-1.33c.12-.09.25-.14.4-.16.43-.02.79.32.81.75 0 .41-.33.75-.75.75s-.75-.33-.75-.75c0-.23.11-.45.29-.59Z"
+              fill="#fff"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M33.51 14.52v-.03c-.15-.3-.1-.65.12-.9a4.983 4.983 0 0 0 .89-4.78c-.06-.19-.34-.24-.61-.29-.26-.05-.52-.09-.62-.26-.09-.15-.06-.38 0-.63.02-.07.03-.13.04-.2.05-.26.07-.51-.06-.64s-.28-.26-.42-.37l-.09-.07c-1-.74-2.23-1.1-3.47-1.03-1.08.05-2.23.41-3.06 1.14-.4.29-.92.37-1.39.22l-.07-.02c-.84-.3-1.7-.52-2.58-.66a14.28 14.28 0 0 0-6.95.66h-.05c-.45.18-.96.1-1.35-.19-1.55-1.37-4.68-1.71-6.72.01-2.23 1.88-2.36 5.17-.71 7.1.22.25.26.6.12.9-.98 2-1.5 4.2-1.51 6.43 0 7.97 6.72 13.77 15 13.77 8.28 0 15-5.8 15-13.77 0-2.22-.52-4.41-1.49-6.41 0 0 0 .02-.01.02h-.01ZM19.9 20.19c1.19 0 2.15.26 2.15.72 0 .46-.96 1.5-2.15 1.5s-2.15-1.04-2.15-1.5c0-.46.96-.72 2.15-.72ZM7.86 11.8a.578.578 0 0 1-.18-.2c-.02-.03-.04-.07-.06-.1-.36-.66-.45-1.44-.23-2.16.42-1.41 1.92-2.24 3.35-2.05.37.05.74.17 1.07.35.14.08.26.17.37.28.04.04.08.09.1.15.02.09 0 .18-.07.25-.06.06-.14.11-.22.15-1.37.8-2.49 1.95-3.52 3.14-.17.19-.35.37-.61.19Zm3.66 11.33c-1.24-.14-2.32-1.45-2.73-2.77-.18-.58-.61-3.26 1.31-5.2.64-.64 1.54-1.21 2.79-1.59.41-.1.82-.15 1.24-.15.62 0 1.36.1 1.95.53 1.24.91 1.26 2.44.52 3.23s-2.4 2.59-2.83 4.06c-.42 1.47-1.01 2.04-2.26 1.9 0 0 .01-.01.01 0v-.01Zm8.4 4.43h-.04c-2.39-.01-4.32-1.7-4.32-3.4 0-.59.26-.89.89-.73.37.09 1.89.48 3.27.48h.35c1.35 0 2.82-.37 3.24-.48h.03c.64-.16.89.14.89.72 0 1.7-1.93 3.39-4.32 3.4h.01v.01Zm11.09-7.22c-.41 1.32-1.49 2.63-2.73 2.77-1.24.14-1.83-.42-2.26-1.9-.43-1.47-2.09-3.28-2.83-4.07-.74-.78-.72-2.32.52-3.23.58-.43 1.33-.53 1.95-.53.42 0 .83.05 1.24.15 1.25.38 2.15.94 2.79 1.58 1.92 1.94 1.49 4.62 1.31 5.2 0 0 .01.03 0 .03h.01Zm1.37-8.84-.06.1a.86.86 0 0 1-.18.2c-.26.18-.44 0-.61-.19-1.03-1.19-2.15-2.34-3.52-3.14a1.07 1.07 0 0 1-.22-.15.33.33 0 0 1-.08-.25c.02-.06.05-.11.1-.15.11-.11.23-.21.37-.28.33-.18.7-.3 1.07-.35 1.43-.19 2.93.64 3.35 2.05.21.72.13 1.5-.23 2.16h.01Z"
+              fill="#fff"
+            />
+          </svg>
+                    <span>foodpanda</span>
+                </a>
+    </div>
+   <div class="footer-bottom-right">
+        <a href="https://facebook.com" target="_blank" class="footer-icon">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="footer-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+</div>
+
+    </div>
+</div>
+
+ 
+
+    <!-- Link to our JavaScript file -->
+    <script>
+function scrollCarousel(direction) {
+    const carousel = document.getElementById('restaurantCarousel');
+    const card = carousel.querySelector('.restaurant-card');
+    const gap = 25; // gap between cards
+    const scrollAmount = (card.offsetWidth + gap) * 3; // scroll 3 cards per click
+    carousel.scrollLeft += direction * scrollAmount;
+}
+</script>
+
+</body>
+</html>
